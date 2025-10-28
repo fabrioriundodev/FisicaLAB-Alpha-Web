@@ -1,113 +1,103 @@
-# Accessible Astro Starter
+# FisicaLAB Alpha
 
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
+[![Desarrollado con Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
 
-<img width="1200" height="627" alt="social-preview" src="https://github.com/user-attachments/assets/fa1a8b50-3aab-4bd3-8f50-1d43586fbd84" />
+<img width="1200" height="627" alt="FisicaLAB Alpha" src="https://github.com/user-attachments/assets/fa1a8b50-3aab-4bd3-8f50-1d43586fbd84" />
 
-A ready-to-use, SEO and accessibility-focused Astro starter template. Built with modern web standards, WCAG 2.2 AA guidelines, and European Accessibility Act (EAA) compliance in mind, it provides a solid foundation for creating inclusive websites. Features Tailwind CSS 4 integration, comprehensive component library with enhanced form validation, color contrast checker, and typography with Atkinson Hyperlegible font for improved readability. Includes dynamic blog/portfolio pages with social sharing, contact forms, and full MDX support.
+**FisicaLAB Alpha** es un simulador educativo desarrollado con **Astro** y **Java**, diseñado para visualizar y experimentar fenómenos de cinemática y estática de manera interactiva.  
+Este proyecto busca ofrecer una experiencia moderna, accesible y clara para estudiantes de física, priorizando el aprendizaje visual y la interactividad.
 
-[![LIVE DEMO](https://img.shields.io/badge/LIVE_DEMO-4ECCA3?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro-starter.incluud.dev/) &nbsp;
-[![DOCUMENTATION](https://img.shields.io/badge/DOCUMENTATION-A682FF?style=for-the-badge&logo=astro&logoColor=black)](https://accessible-astro.incluud.dev/) &nbsp;
-[![Sponsor on Open Collective](https://img.shields.io/badge/Open%20Collective-7FADF2?style=for-the-badge&logo=opencollective&logoColor=white)](https://opencollective.com/incluud) &nbsp;
+[![DEMO EN VIVO](https://img.shields.io/badge/DEMO_EN_VIVO-4ECCA3?style=for-the-badge&logo=astro&logoColor=black)](https://tu-demo-url.vercel.app/) &nbsp;
+[![DOCUMENTACIÓN](https://img.shields.io/badge/DOCUMENTACIÓN-A682FF?style=for-the-badge&logo=astro&logoColor=black)](https://github.com/fabrioriundodev/FisicaLAB-Alpha-Web) &nbsp;
 
-## Our mission
+---
 
-> Provide developers with accessible, easy-to-use components that make building inclusive web applications simpler and faster, without compromising on customization or performance.
+## Objetivo del proyecto
 
-## (Accessibility) Features
+> Ofrecer a estudiantes y docentes de física una herramienta interactiva, moderna y accesible para la enseñanza de la cinemática, estática y otros fenómenos físicos, integrando simulaciones visuales y explicaciones claras.
 
-- Astro 5.13.0+
-- Tailwind CSS 4.1+ support
-- TypeScript integration with path aliases for easier imports and content collections support
-- Prettier integration with `prettier-plugin-astro` and `prettier-plugin-tailwind`
-- ESLint integration with strict accessibility settings for `eslint-plugin-jsx-a11y`
-- Markdown and MDX support with comprehensive examples and components
-- Modern OKLCH color system with automatic palette generation from primary/secondary colors
-- Atkinson Hyperlegible font for improved readability and accessibility
-- Lucide icon set via `astro-icon` for consistent, friendly icons
-- Semantic HTML structure with `Button`, `Link` and `Heading` components
-- Excellent Lighthouse/PageSpeed scores
-- Accessible landmarks such as `header`, `main`, `footer`, `section` and `nav`
-- Outline focus indicator which works on dark and light backgrounds
-- Several `aria` attributes which provide a better experience for screen reader users
-- `[...page].astro` and `[post].astro` demonstrate the use of dynamic routes and provide a basic blog with breadcrumbs and pagination
-- `404.astro` provides a custom 404 error page which you can adjust to your needs
-- `Header.astro` component with optimized accessibility and design
-- `Footer.astro` component with informative content and links
-- `SkipLinks.astro` component to skip to either the main menu or the main content
-- `Navigation.astro` component with keyboard accessible (dropdown) navigation and highlighted menu item option
-- `ResponsiveToggle.astro` component with accessible responsive toggle functionality
-- `DarkMode.astro` component toggle with accessible button and a user system preferred color scheme setting
-- `SiteMeta.astro` SEO component for setting custom metadata on different pages
-- `.sr-only` utility class for screen reader only text content (hides text visually)
-- `prefers-reduced-motion` disables animations for users that have this preference turned on
-- Components including `ColorContrast.astro`, `BlockQuote.astro`, `BreakoutImage.astro`, `Logo.astro`, `SocialShares.astro`, `PageHeader.astro`, `FeaturedPosts.astro`, and `FeaturedProjects.astro`
-- Enhanced form components with comprehensive validation: `Form`, `Input`, `Textarea`, `Checkbox`, `Radio`, and `Fieldset` with WCAG 2.2 compliance
-- Automatic form validation with custom patterns, error handling, and screen reader support
-- Blog and portfolio pages with featured images, author details, social sharing, and breakout images
-- Contact page with comprehensive form validation showcase and accessibility demonstrations
-- Thank-you page for form submissions with interactive feedback
-- Accessibility Statement template page
-- Color Contrast Checker interactive page
-- Comprehensive sitemap page with organized navigation and automatic XML sitemap generation via `@astrojs/sitemap`
-- Enhanced accessible-components showcase page with expanded component demonstrations
-- Smooth micro-interactions and animations on hover, open and close states (respecting reduced motion preferences)
-- Comprehensive SCSS utility classes
-- CSS with logical properties and custom properties
-- Accessible button and hyperlink styling with clear focus states
-- Styled `<kbd>` element for keyboard shortcut documentation
+---
 
-## Getting started
+## Características principales
 
-Clone this theme locally and run any of the following commands in your terminal:
+- Desarrollado con **Astro** para alto rendimiento y renderizado estático optimizado.  
+- Integración completa con **Tailwind CSS** para un diseño limpio y adaptable.  
+- Compatibilidad con **Java y componentes Web** para simulaciones dinámicas.  
+- Secciones de aprendizaje estructuradas: **Cinemática**, **Estática**, **Fuerzas**, **Energía**, entre otros temas.  
+- Accesibilidad mejorada siguiendo pautas **WCAG 2.2 AA**.  
+- Diseño responsive compatible con escritorio y dispositivos móviles.  
+- Soporte para contenido **Markdown/MDX** en las páginas educativas.  
+- Componentes personalizados como:
+  - `Simulador.astro`: espacio de simulación visual.
+  - `Teoria.astro`: bloques informativos con diagramas.
+  - `Navbar.astro` y `Footer.astro`: navegación accesible.
+- Modo claro/oscuro automático según las preferencias del usuario.  
+- Preparado para despliegue en **Vercel**.
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:4321`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+---
 
-## Accessible Astro projects
+## Estructura del proyecto
 
-- [Accessible Astro Starter](https://github.com/incluud/accessible-astro-starter): Fully accessible starter for kickstarting Astro projects, with Tailwind.
-- [Accessible Astro Components](https://github.com/incluud/accessible-astro-components/): Library of reusable, accessible components built for Astro.
-- [Accessible Astro Dashboard](https://github.com/incluud/accessible-astro-dashboard/): User-friendly dashboard interface with a login screen and widgets.
-- [Accessible Astro Docs](https://github.com/incluud/accessible-astro-docs): Comprehensive documentation for all Accessible Astro projects.
-- [Color Contrast Checker](https://github.com/incluud/color-contrast-checker): WCAG-compliant color contrast checker with design system token generation.
+| Carpeta / Archivo | Descripción |
+| :---------------- | :----------- |
+| `src/components/` | Componentes reutilizables del simulador |
+| `src/pages/` | Páginas de contenido educativo (Cinemática, Estática, etc.) |
+| `src/layouts/` | Plantillas base para la estructura de las páginas |
+| `src/styles/` | Configuración de estilos globales con Tailwind |
+| `public/` | Recursos estáticos (imágenes, íconos, etc.) |
+| `astro.config.mjs` | Configuración principal del proyecto |
+| `package.json` | Dependencias y scripts de desarrollo |
 
-Check out our [roadmap](https://github.com/orgs/incluud/projects/4/views/1) to see what's coming next!
+---
 
-## Contributing
+## Comandos básicos
 
-We welcome contributions to improve the documentation! You can help by:
+Ejecuta estos comandos en tu terminal:
 
-1. [Filing an issue](https://github.com/incluud/accessible-astro-starter/issues)
-2. [Submitting a pull request](https://github.com/incluud/accessible-astro-starter/pulls)
-3. [Starting a discussion](https://github.com/incluud/accessible-astro-starter/discussions)
-4. [Supporting on Open Collective](https://opencollective.com/incluud)
+| Comando | Acción |
+| :------- | :------ |
+| `npm install` | Instala las dependencias necesarias |
+| `npm run dev` | Inicia el servidor de desarrollo en `localhost:4321` |
+| `npm run build` | Genera la versión lista para producción en `./dist/` |
+| `npm run preview` | Previsualiza tu sitio antes de desplegarlo |
 
-## Support this project
+---
 
-Your support helps us cover basic costs and continue building accessible solutions for the Astro ecosystem. By becoming a sponsor, you're not just supporting code – you're helping create a more inclusive web for everyone. Every contribution, big or small, helps maintain and improve these accessibility-focused tools.
+## Tecnologías utilizadas
 
-[![Sponsor on Open Collective](https://img.shields.io/badge/Open%20Collective-7FADF2?style=for-the-badge&logo=opencollective&logoColor=white)](https://opencollective.com/incluud)
+- **Astro** — Framework estático de alto rendimiento  
+- **Tailwind CSS 4** — Estilos rápidos y configurables  
+- **Java** — Lógica del simulador físico  
+- **TypeScript** — Mejor mantenimiento del código  
+- **Accessible Astro Components** — Accesibilidad garantizada  
+- **Lucide Icons** — Íconos consistentes y accesibles  
 
-## Together we make a difference
+---
 
-We want to express our heartfelt gratitude to everyone who contributes to making the web more accessible:
+## Contribuir
 
-- **The Astro team** for creating an amazing static site generator and the wonderful Starlight theme
-- **Our contributors** who dedicate their time and expertise to improve these tools
-- [**Niek Derksen**](https://niekderksen.nl) for conducting comprehensive accessibility audits to ensure WCAG compliance
-- **Our sponsors** who help make this project sustainable
-- **The web community** for embracing and promoting web accessibility
-- **You, the developer** for choosing to make your projects more accessible
+Las contribuciones son bienvenidas.  
+Puedes ayudar de las siguientes formas:
 
-<a href="https://github.com/incluud/accessible-astro-starter/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=incluud/accessible-astro-starter" />
-</a><br /><br />
+1. Reportando errores o mejoras en los módulos (Issues)  
+2. Enviando solicitudes de cambio (Pull Requests)  
+3. Proponiendo nuevas simulaciones o temas de física  
+4. Mejorando la documentación o diseño visual  
 
-Together, we're not just building documentation or components – we're creating a more inclusive and accessible web for everyone. Every contribution, whether it's code, documentation, bug reports, or feedback, helps move us closer to this goal. ✨
+Repositorio: [FisicaLAB-Alpha-Web](https://github.com/fabrioriundodev/FisicaLAB-Alpha-Web)
 
-Remember: Accessibility is not a feature, it's a fundamental right. Thank you for being part of this journey!
+---
+
+## Agradecimientos
+
+Queremos agradecer a:
+
+- El equipo de Astro, por el increíble framework.  
+- Los docentes de Física, por inspirar este proyecto educativo.  
+- Los colaboradores, que aportan su tiempo y conocimiento.  
+- La comunidad educativa, que impulsa el aprendizaje interactivo.  
+
+---
+
+> FisicaLAB Alpha es más que un sitio web:  
+> es una herramienta para aprender física de forma visual, práctica y accesible.
