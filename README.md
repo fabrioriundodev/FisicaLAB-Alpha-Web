@@ -25,6 +25,7 @@
 ---
 
 ## Estructura del proyecto
+
 FisicaLAB-Alpha/
 ├── public/ # Recursos estáticos (imágenes, íconos, etc.)
 ├── src/
@@ -36,7 +37,6 @@ FisicaLAB-Alpha/
 ├── astro.config.mjs # Configuración principal del proyecto
 ├── package.json # Dependencias y scripts
 └── README.md # Documentación del proyecto
-
 
 ---
 
