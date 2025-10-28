@@ -1,0 +1,229 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading } from 'accessible-astro-components'
+---
+
+<DefaultLayout
+  title="Energía y Trabajo Mecánico"
+  description="Aprende los conceptos fundamentales de energía, trabajo y potencia en física, con ejemplos claros y visuales."
+>
+  <!-- ENCABEZADO PRINCIPAL -->
+  <section class="header-section">
+    <div class="container text-center">
+      <h1 class="main-title">⚡ Energía y Trabajo Mecánico ⚙️</h1>
+      <p class="main-subtitle">
+        Comprende cómo las fuerzas realizan trabajo, cómo se transforma la energía y cómo se conserva en los sistemas físicos.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="my-16">
+    <div class="container space-y-16">
+
+      <!-- Introducción -->
+      <div class="text-center mb-10">
+        <Heading level="h2" class="mb-3">Conceptos Fundamentales</Heading>
+        <p class="intro-text">
+          La <strong>energía</strong> y el <strong>trabajo mecánico</strong> son pilares de la física. 
+          Nos permiten entender cómo los cuerpos se mueven, interactúan y transforman su entorno.
+        </p>
+      </div>
+
+      <!-- TARJETAS EDUCATIVAS -->
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Energía Cinética -->
+        <article class="physics-card card-yellow">
+          <div class="card-icon"><span class="icon-emoji">⚡</span></div>
+          <Heading level="h3" size="h6" class="card-title">Energía Cinética</Heading>
+          <p class="card-description">
+            Energía del movimiento. Cuanto mayor es la masa o la velocidad, mayor es la energía cinética.
+          </p>
+          <p><strong>Fórmula:</strong> <code>E<sub>c</sub> = ½·m·v²</code></p>
+          <p><strong>Ejemplo:</strong> Un coche de 1000 kg a 20 m/s tiene 200 000 J de energía cinética.</p>
+        </article>
+
+        <!-- Energía Potencial -->
+        <article class="physics-card card-green">
+          <div class="card-icon"><span class="icon-emoji">⛰️</span></div>
+          <Heading level="h3" size="h6" class="card-title">Energía Potencial</Heading>
+          <p class="card-description">
+            Energía almacenada por la posición o configuración de un cuerpo.  
+            La más común es la gravitatoria.
+          </p>
+          <p><strong>Fórmula:</strong> <code>E<sub>p</sub> = m·g·h</code></p>
+          <p><strong>Ejemplo:</strong> Una piedra de 2 kg a 5 m de altura tiene 98 J de energía potencial.</p>
+        </article>
+
+        <!-- Trabajo Mecánico -->
+        <article class="physics-card card-orange">
+          <div class="card-icon"><span class="icon-emoji">🔧</span></div>
+          <Heading level="h3" size="h6" class="card-title">Trabajo Mecánico</Heading>
+          <p class="card-description">
+            Es la transferencia de energía producida por una fuerza que genera desplazamiento.
+          </p>
+          <p><strong>Fórmula:</strong> <code>W = F·d·cos(θ)</code></p>
+          <p><strong>Ejemplo:</strong> Si aplicas 10 N durante 3 m, el trabajo realizado es 30 J.</p>
+        </article>
+
+        <!-- Potencia Mecánica -->
+        <article class="physics-card card-purple">
+          <div class="card-icon"><span class="icon-emoji">⚙️</span></div>
+          <Heading level="h3" size="h6" class="card-title">Potencia Mecánica</Heading>
+          <p class="card-description">
+            Mide la rapidez con la que se realiza trabajo o se transfiere energía.
+          </p>
+          <p><strong>Fórmula:</strong> <code>P = W / t</code></p>
+          <p><strong>Ejemplo:</strong> 600 J de trabajo en 3 s → Potencia = 200 W.</p>
+        </article>
+
+        <!-- Conservación de la Energía -->
+        <article class="physics-card card-teal">
+          <div class="card-icon"><span class="icon-emoji">♻️</span></div>
+          <Heading level="h3" size="h6" class="card-title">Conservación de la Energía</Heading>
+          <p class="card-description">
+            La energía no se crea ni se destruye: solo se transforma de una forma a otra.
+          </p>
+          <p><strong>Ejemplo:</strong> En una montaña rusa, la energía potencial se convierte en cinética al descender.</p>
+        </article>
+
+        <!-- Relación entre Energía y Trabajo -->
+        <article class="physics-card card-red">
+          <div class="card-icon"><span class="icon-emoji">🔄</span></div>
+          <Heading level="h3" size="h6" class="card-title">Relación entre Energía y Trabajo</Heading>
+          <p class="card-description">
+            El trabajo realizado por una fuerza provoca un cambio en la energía del cuerpo.  
+            <em>Principio del Trabajo y la Energía:</em> <code>W = ΔE<sub>c</sub></code>
+          </p>
+          <p><strong>Ejemplo:</strong> 50 J de trabajo → aumento de 50 J en la energía cinética.</p>
+        </article>
+      </div>
+
+      <!-- Ejemplo Integrador -->
+      <div class="example-section my-20">
+        <Heading level="h2" class="text-center mb-4">🧠 Ejemplo Integrador</Heading>
+        <p class="text-lg text-neutral-700 dark:text-neutral-300 text-center mb-6">
+          Una caja de 10 kg se empuja con una fuerza de 50 N durante 4 m.  
+          ¿Cuánto trabajo se realiza? ¿Qué velocidad final alcanza?
+        </p>
+        <div class="example-card">
+          <ol class="list-decimal ml-6 space-y-2">
+            <li><code>W = F·d = 50·4 = 200 J</code></li>
+            <li><code>ΔE<sub>c</sub> = 200 J</code> (el trabajo se convierte en energía cinética)</li>
+            <li><code>v = √(2·E<sub>c</sub>/m) = √(400/10) = 6.32 m/s</code></li>
+          </ol>
+          <p class="mt-4"><strong>Resultado:</strong> la caja alcanza <strong>6.3 m/s</strong>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</DefaultLayout>
+
+<style>
+  /* ======= VARIABLES DE COLOR ======= */
+  :root {
+    --bg-color: #f9fafb;
+    --text-color: #1f2937;
+    --muted-text: #060b11;
+    --card-bg: #ffffff;
+    --border-color: #e5e7eb;
+  }
+
+  :global(.darkmode) {
+    --bg-color: #0f172a;
+    --text-color: #f9fafb;
+    --muted-text: #a1a1aa;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* ======= ENCABEZADO PRINCIPAL ======= */
+  .header-section {
+    text-align: center;
+    padding: 5rem 1rem 3rem 1rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    color: #fff;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .main-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .main-subtitle {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.95;
+  }
+
+  /* ======= TARJETAS ======= */
+  .physics-card {
+    border-radius: 1rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .physics-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    color: #fff;
+  }
+
+  /* ======= COLORES TARJETAS ======= */
+  .card-yellow .card-icon { background: linear-gradient(135deg, #facc15, #eab308); }
+  .card-green .card-icon { background: linear-gradient(135deg, #10b981, #059669); }
+  .card-orange .card-icon { background: linear-gradient(135deg, #fb923c, #f97316); }
+  .card-purple .card-icon { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+  .card-teal .card-icon { background: linear-gradient(135deg, #2dd4bf, #14b8a6); }
+  .card-red .card-icon { background: linear-gradient(135deg, #f87171, #ef4444); }
+
+  /* ======= TEXTO ======= */
+  .card-title { margin-bottom: 0.5rem; color: var(--text-color); }
+  .card-description { color: var(--muted-text); line-height: 1.6; margin-bottom: 1rem; }
+
+  /* ======= EJEMPLO ======= */
+  .example-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-left: 4px solid #6366f1;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  /* ======= RESPONSIVE ======= */
+  @media (max-width: 768px) {
+    .main-title { font-size: 2.2rem; }
+    .main-subtitle { font-size: 1rem; }
+    .physics-card { padding: 1.5rem; }
+  }
+</style>

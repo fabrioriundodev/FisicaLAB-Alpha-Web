@@ -1,0 +1,617 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading, Link } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+---
+
+<DefaultLayout title="Contacto">
+  <PageHeader title="Contacto" subtitle="¡Escríbenos un mensaje!" bgType="gradient" />
+
+  <section class="my-16 container">
+    <div class="max-w-5xl mx-auto">
+      <!-- Header con diseño colorido -->
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-6 py-3 rounded-full mb-4 shadow-lg">
+          <Icon name="lucide:mail" size={24} />
+          <span class="font-bold text-lg">Contáctanos</span>
+        </div>
+        <p class="font-normal max-w-2xl mx-auto">
+          Estamos aquí para ayudarte. Completa el formulario y te responderemos lo antes posible.
+        </p>
+
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Formulario - 2 columnas -->
+        <div class="lg:col-span-2">
+          <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 border border-gray-200 dark:border-gray-800">
+            <form 
+              action="https://formspree.io/f/xeopqjor" 
+              method="POST"
+              id="contact-form"
+              class="space-y-6"
+              novalidate
+            >
+              <!-- Nombre -->
+              <div class="form-group">
+                <label for="name" class="block text-sm font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <Icon name="lucide:user" size={18} class="text-white" />
+                  </div>
+                  Nombre completo <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  minlength="3"
+                  maxlength="50"
+                  class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-gray-900 transition-all duration-300 outline-none"
+                  placeholder="Ej: Juan Pérez García"
+                />
+                <p class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400 flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg">
+                  <Icon name="lucide:alert-circle" size={16} />
+                  <span></span>
+                </p>
+              </div>
+
+              <!-- Email y Teléfono en grid -->
+              <div class="grid md:grid-cols-2 gap-6">
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email" class="block text-sm font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                      <Icon name="lucide:mail" size={18} class="text-white" />
+                    </div>
+                    Correo <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:border-purple-500 dark:focus:border-purple-400 focus:bg-white dark:focus:bg-gray-900 transition-all duration-300 outline-none"
+                    placeholder="tu@email.com"
+                  />
+                  <p class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400 flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg">
+                    <Icon name="lucide:alert-circle" size={16} />
+                    <span></span>
+                  </p>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="form-group">
+                  <label for="phone" class="block text-sm font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                      <Icon name="lucide:phone" size={18} class="text-white" />
+                    </div>
+                    Teléfono <span class="text-gray-400 text-xs">(opcional)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    pattern="[0-9+\s\-()]+"
+                    minlength="9"
+                    maxlength="15"
+                    class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:border-green-500 dark:focus:border-green-400 focus:bg-white dark:focus:bg-gray-900 transition-all duration-300 outline-none"
+                    placeholder="+51 999 999 999"
+                  />
+                  <p class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400 flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg">
+                    <Icon name="lucide:alert-circle" size={16} />
+                    <span></span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Asunto -->
+              <div class="form-group">
+                <label for="subject" class="block text-sm font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                    <Icon name="lucide:tag" size={18} class="text-white" />
+                  </div>
+                  Asunto <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  minlength="5"
+                  maxlength="100"
+                  class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:border-orange-500 dark:focus:border-orange-400 focus:bg-white dark:focus:bg-gray-900 transition-all duration-300 outline-none"
+                  placeholder="¿En qué podemos ayudarte?"
+                />
+                <p class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400 flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg">
+                  <Icon name="lucide:alert-circle" size={16} />
+                  <span></span>
+                </p>
+              </div>
+
+              <!-- Mensaje -->
+              <div class="form-group">
+                <label for="message" class="block text-sm font-bold mb-3 text-gray-900 dark:text-white flex items-center gap-2">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
+                    <Icon name="lucide:message-square" size={18} class="text-white" />
+                  </div>
+                  Mensaje <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  minlength="10"
+                  maxlength="1000"
+                  rows="6"
+                  class="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:border-pink-500 dark:focus:border-pink-400 focus:bg-white dark:focus:bg-gray-900 transition-all duration-300 outline-none resize-none"
+                  placeholder="Escribe tu mensaje aquí..."
+                ></textarea>
+                <div class="flex justify-between items-center mt-2">
+                  <p class="error-message hidden text-sm text-red-600 dark:text-red-400 flex items-center gap-2 bg-red-50 dark:bg-red-900/20 px-3 py-2 rounded-lg">
+                    <Icon name="lucide:alert-circle" size={16} />
+                    <span></span>
+                  </p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 font-medium ml-auto">
+                    <span id="char-count" class="text-gray-900 dark:text-white">0</span> / 1000
+                  </p>
+                </div>
+              </div>
+
+              <!-- Botón de envío -->
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white font-bold py-5 px-8 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-900 flex items-center justify-center gap-3 text-lg"
+              >
+                <span>Enviar mensaje</span>
+                <Icon name="lucide:send" size={24} />
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Información lateral - 1 columna -->
+        <div class="space-y-6">
+          <!-- Datos de contacto -->
+          <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 border border-gray-200 dark:border-gray-800">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+                <Icon name="lucide:info" size={20} class="text-white" />
+              </div>
+              Información
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center flex-shrink-0">
+                  <Icon name="lucide:map-pin" size={20} class="text-white" />
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Dirección</p>
+                  <p class="text-sm text-gray-900 dark:text-white font-medium">Ctra. Panamericana Sur 2, Ica 11004</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center flex-shrink-0">
+                  <Icon name="lucide:phone" size={20} class="text-white" />
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Teléfono</p>
+                  <Link href="tel:+51941180670" class="text-sm text-gray-900 dark:text-white font-medium hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                    941180670
+                  </Link>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-3 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center flex-shrink-0">
+                  <Icon name="lucide:mail" size={20} class="text-white" />
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Correo</p>
+                  <Link href="mailto:fabriziooriundo201@gmail.com" class="text-sm text-gray-900 dark:text-white font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors break-all">
+                    fabriziooriundo201@gmail.com
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Horario -->
+          <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 border border-gray-200 dark:border-gray-800">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
+                <Icon name="lucide:clock" size={20} class="text-white" />
+              </div>
+              Horario
+            </h3>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center p-3 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl">
+                <span class="text-sm font-bold text-gray-900 dark:text-white">Lun - Vie</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">9:00 AM - 6:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl">
+                <span class="text-sm font-bold text-gray-900 dark:text-white">Sábados</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">10:00 AM - 2:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-800 rounded-xl opacity-60">
+                <span class="text-sm font-bold text-gray-900 dark:text-white">Domingos</span>
+                <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">Cerrado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Redes sociales -->
+          <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 border border-gray-200 dark:border-gray-800">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-600 flex items-center justify-center">
+                <Icon name="lucide:share-2" size={20} class="text-white" />
+              </div>
+              Síguenos
+            </h3>
+            <div class="grid grid-cols-4 gap-3">
+          <!-- Facebook: Azul a Morado -->
+          <a 
+            href="https://www.facebook.com/upsjboficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 hover:from-blue-600 hover:via-purple-600 hover:to-indigo-700 text-white transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/50"
+            title="Facebook"
+          >
+            <Icon name="lucide:facebook" size={24} />
+          </a>
+
+          <!-- Twitter/X: Negro con toque azul neón -->
+          <a 
+            href="https://x.com/UPSJB"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center h-14 rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 hover:from-slate-900 hover:via-blue-900 hover:to-cyan-900 text-white transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/50"
+            title="Twitter"
+          >
+            <Icon name="lucide:twitter" size={24} />
+          </a>
+
+          <!-- YouTube: Rojo a Naranja ardiente -->
+          <a 
+            href="https://www.youtube.com/@upsjboficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center h-14 rounded-2xl bg-gradient-to-br from-red-500 via-red-600 to-orange-600 hover:from-orange-500 hover:via-red-600 hover:to-yellow-500 text-white transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-orange-500/50"
+            title="YouTube"
+          >
+            <Icon name="lucide:youtube" size={24} />
+          </a>
+
+          <!-- TikTok: Rosa, Cyan y Amarillo vibrante -->
+          <a 
+            href="https://www.tiktok.com/@upsjboficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center h-14 rounded-2xl bg-gradient-to-br from-pink-500 via-fuchsia-500 to-purple-600 hover:from-cyan-400 hover:via-pink-500 hover:to-yellow-400 text-white transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-pink-500/50 hover:rotate-2"
+            title="TikTok"
+          >
+            <svg class="w-6 h-6 transition-transform duration-500 hover:rotate-12" viewBox="0 0 352.28 398.67" fill="currentColor">
+              <g>
+                <path d="M137.17 156.98v-15.56c-5.34-.73-10.76-1.18-16.29-1.18C54.23 140.24 0 194.47 0 261.13c0 40.9 20.43 77.09 51.61 98.97-20.12-21.6-32.46-50.53-32.46-82.31 0-65.7 52.69-119.28 118.03-120.81Z"/>
+                <path d="M140.02 333c29.74 0 54-23.66 55.1-53.13l.11-263.2h48.08c-1-5.41-1.55-10.97-1.55-16.67h-65.67l-.11 263.2c-1.1 29.47-25.36 53.13-55.1 53.13-9.24 0-17.95-2.31-25.61-6.34C105.3 323.9 121.6 333 140.02 333ZM333.13 106V91.37c-18.34 0-35.43-5.45-49.76-14.8 12.76 14.65 30.09 25.22 49.76 29.43Z"/>
+                <path d="M283.38 76.57c-13.98-16.05-22.47-37-22.47-59.91h-17.59c4.63 25.02 19.48 46.49 40.06 59.91ZM120.88 205.92c-30.44 0-55.21 24.77-55.21 55.21 0 21.2 12.03 39.62 29.6 48.86-6.55-9.08-10.45-20.18-10.45-32.2 0-30.44 24.77-55.21 55.21-55.21 5.68 0 11.13.94 16.29 2.55v-67.05c-5.34-.73-10.76-1.18-16.29-1.18-.96 0-1.9.05-2.85.07v51.49c-5.16-1.61-10.61-2.55-16.29-2.55Z"/>
+                <path d="M333.13 106v51.04c-34.05 0-65.61-10.89-91.37-29.38v133.47c0 66.66-54.23 120.88-120.88 120.88-25.76 0-49.64-8.12-69.28-21.91 22.08 23.71 53.54 38.57 88.42 38.57 66.66 0 120.88-54.23 120.88-120.88V144.33c25.76 18.49 57.32 29.38 91.37 29.38v-65.68c-6.57 0-12.97-.71-19.14-2.03Z"/>
+                <path d="M241.76 261.13V127.66c25.76 18.49 57.32 29.38 91.37 29.38V106c-19.67-4.21-37-14.77-49.76-29.43-20.58-13.42-35.43-34.88-40.06-59.91h-48.08l-.11 263.2c-1.1 29.47-25.36 53.13-55.1 53.13-18.42 0-34.72-9.1-44.75-23.01-17.57-9.25-29.6-27.67-29.6-48.86 0-30.44 24.77-55.21 55.21-55.21 5.68 0 11.13.94 16.29 2.55v-51.49C71.83 158.5 19.14 212.08 19.14 277.78c0 31.78 12.34 60.71 32.46 82.31C71.23 373.87 95.12 382 120.88 382c66.65 0 120.88-54.23 120.88-120.88Z"/>
+              </g>
+            </svg>
+          </a>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+</DefaultLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const charCount = document.getElementById('char-count');
+    const messageField = document.getElementById('message');
+    
+    // Función para mostrar toast con iconos lucide
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      
+      const colors = {
+        success: 'from-green-500 to-emerald-600',
+        error: 'from-red-500 to-rose-600',
+        warning: 'from-yellow-500 to-orange-600',
+        info: 'from-blue-500 to-indigo-600'
+      };
+      
+      const icons = {
+        success: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
+        error: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`,
+        warning: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+        info: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`
+      };
+      
+      toast.className = `bg-gradient-to-r ${colors[type]} text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 min-w-[320px] max-w-md transform transition-all duration-300 translate-x-full border border-white/20`;
+      toast.innerHTML = `
+        <div class="flex-shrink-0">${icons[type]}</div>
+        <p class="flex-1 font-bold">${message}</p>
+        <button onclick="this.parentElement.remove()" class="ml-2 hover:bg-white/20 rounded-full p-1.5 transition flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      `;
+      
+      container.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-x-full');
+      }, 10);
+      
+      setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 5000);
+    }
+    
+    // Contador de caracteres
+    if (messageField && charCount) {
+      messageField.addEventListener('input', function() {
+        charCount.textContent = this.value.length;
+      });
+    }
+    
+    // Validaciones personalizadas
+    function validateName(name) {
+      if (!name.trim()) {
+        return 'El nombre es obligatorio';
+      }
+      if (name.trim().length < 3) {
+        return 'El nombre debe tener al menos 3 caracteres';
+      }
+      if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(name)) {
+        return 'El nombre solo puede contener letras';
+      }
+      return null;
+    }
+    
+    function validateEmail(email) {
+      if (!email.trim()) {
+        return 'El correo electrónico es obligatorio';
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return 'El correo electrónico no es válido';
+      }
+      return null;
+    }
+    
+    function validatePhone(phone) {
+      if (phone && phone.trim()) {
+        if (!/^[0-9+\s\-()]+$/.test(phone)) {
+          return 'El teléfono solo puede contener números, espacios y símbolos +, -, ( )';
+        }
+        const digitsOnly = phone.replace(/\D/g, '');
+        if (digitsOnly.length < 9) {
+          return 'El teléfono debe tener al menos 9 dígitos';
+        }
+      }
+      return null;
+    }
+    
+    function validateSubject(subject) {
+      if (!subject.trim()) {
+        return 'El asunto es obligatorio';
+      }
+      if (subject.trim().length < 5) {
+        return 'El asunto debe tener al menos 5 caracteres';
+      }
+      return null;
+    }
+    
+    function validateMessage(message) {
+      if (!message.trim()) {
+        return 'El mensaje es obligatorio';
+      }
+      if (message.trim().length < 10) {
+        return 'El mensaje debe tener al menos 10 caracteres';
+      }
+      return null;
+    }
+    
+    // Mostrar error en campo
+    function showFieldError(fieldId, errorMessage) {
+      const field = document.getElementById(fieldId);
+      const formGroup = field.closest('.form-group');
+      const errorElement = formGroup.querySelector('.error-message');
+      
+      field.classList.add('border-red-500', 'dark:border-red-500');
+      field.classList.remove('border-gray-200', 'dark:border-gray-700');
+      
+      if (errorElement) {
+        errorElement.classList.remove('hidden');
+        errorElement.querySelector('span').textContent = errorMessage;
+      }
+    }
+    
+    // Limpiar error de campo
+    function clearFieldError(fieldId) {
+      const field = document.getElementById(fieldId);
+      const formGroup = field.closest('.form-group');
+      const errorElement = formGroup.querySelector('.error-message');
+      
+      field.classList.remove('border-red-500', 'dark:border-red-500');
+      field.classList.add('border-gray-200', 'dark:border-gray-700');
+      
+      if (errorElement) {
+        errorElement.classList.add('hidden');
+      }
+    }
+    
+    // Validación en tiempo real
+    document.getElementById('name').addEventListener('blur', function() {
+      const error = validateName(this.value);
+      if (error) {
+        showFieldError('name', error);
+      } else {
+        clearFieldError('name');
+      }
+    });
+    
+    document.getElementById('email').addEventListener('blur', function() {
+      const error = validateEmail(this.value);
+      if (error) {
+        showFieldError('email', error);
+      } else {
+        clearFieldError('email');
+      }
+    });
+    
+    document.getElementById('phone').addEventListener('blur', function() {
+      const error = validatePhone(this.value);
+      if (error) {
+        showFieldError('phone', error);
+      } else {
+        clearFieldError('phone');
+      }
+    });
+    
+    document.getElementById('subject').addEventListener('blur', function() {
+      const error = validateSubject(this.value);
+      if (error) {
+        showFieldError('subject', error);
+      } else {
+        clearFieldError('subject');
+      }
+    });
+    
+    document.getElementById('message').addEventListener('blur', function() {
+      const error = validateMessage(this.value);
+      if (error) {
+        showFieldError('message', error);
+      } else {
+        clearFieldError('message');
+      }
+    });
+    
+    // Manejo del envío del formulario
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validar todos los campos
+        const nameError = validateName(document.getElementById('name').value);
+        const emailError = validateEmail(document.getElementById('email').value);
+        const phoneError = validatePhone(document.getElementById('phone').value);
+        const subjectError = validateSubject(document.getElementById('subject').value);
+        const messageError = validateMessage(document.getElementById('message').value);
+        
+        // Limpiar errores previos
+        ['name', 'email', 'phone', 'subject', 'message'].forEach(clearFieldError);
+        
+        let hasErrors = false;
+        
+        if (nameError) {
+          showFieldError('name', nameError);
+          hasErrors = true;
+        }
+        if (emailError) {
+          showFieldError('email', emailError);
+          hasErrors = true;
+        }
+        if (phoneError) {
+          showFieldError('phone', phoneError);
+          hasErrors = true;
+        }
+        if (subjectError) {
+          showFieldError('subject', subjectError);
+          hasErrors = true;
+        }
+        if (messageError) {
+          showFieldError('message', messageError);
+          hasErrors = true;
+        }
+        
+        if (hasErrors) {
+          showToast('Por favor, corrige los errores en el formulario', 'error');
+          return;
+        }
+        
+        // Deshabilitar botón y mostrar loading
+        const originalButtonHTML = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+          <span>Enviando...</span>
+        `;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            showToast('¡Mensaje enviado correctamente! Te responderemos pronto.', 'success');
+            form.reset();
+            charCount.textContent = '0';
+          } else {
+            const data = await response.json();
+            const errorMsg = data.errors ? data.errors.map(err => err.message).join(', ') : 'Hubo un error al enviar el mensaje';
+            showToast(errorMsg, 'error');
+          }
+        } catch (error) {
+          showToast('Error de conexión. Por favor, verifica tu internet e intenta de nuevo.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalButtonHTML;
+          submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+        }
+      });
+    }
+    
+    // Animación de focus en los campos
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.classList.add('scale-[1.01]');
+      });
+      
+      input.addEventListener('blur', function() {
+        this.classList.remove('scale-[1.01]');
+      });
+    });
+  });
+</script>
+
+<style>
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  input, textarea {
+    transition: all 0.3s ease;
+  }
+  
+  input:focus, textarea:focus {
+    transform: scale(1.01);
+  }
+</style>

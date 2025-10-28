@@ -1,0 +1,51 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import { Heading, Link } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+---
+
+<DefaultLayout title="Error del Servidor - 500">
+  <section class="my-32">
+    <div class="container text-center space-content">
+      <div class="flex justify-center mb-8">
+        <Icon name="lucide:server-crash" size="8rem" class="text-red-500" />
+      </div>
+      
+      <Heading level="h1">¡Ups! Error 500</Heading>
+      
+      <p class="text-2xl max-w-2xl mx-auto">
+        Algo salió mal en nuestros servidores. Es como si las leyes de la física 
+        dejaran de funcionar por un momento. ¡Estamos trabajando para solucionarlo!
+      </p>
+      
+      <div class="mt-8 p-6 bg-red-50 dark:bg-red-950 rounded-lg max-w-xl mx-auto">
+        <p class="text-lg">
+          <strong>Posibles causas:</strong><br>
+          • Problema temporal del servidor<br>
+          • Mantenimiento en curso<br>
+          • Error en la carga de recursos
+        </p>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <Link href="/" isButton type="primary" animateOnHover animationType="boop">
+          <Icon aria-hidden="true" name="lucide:refresh-cw" size="1.5rem" />
+          Intentar de nuevo
+        </Link>
+        
+        <Link href="/contact" isButton type="secondary" animateOnHover animationType="boop">
+          <Icon aria-hidden="true" name="lucide:alert-circle" size="1.5rem" />
+          Reportar problema
+        </Link>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style>
+  .space-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+</style>

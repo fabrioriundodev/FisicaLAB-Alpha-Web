@@ -1,0 +1,305 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading, Card, Video, Accordion, AccordionItem, Notification } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+
+const topicsNavigation = [
+  { name: 'Introducción', id: 'introduccion' },
+  { name: 'Características', id: 'caracteristicas' },
+  { name: 'Fórmulas', id: 'formulas' },
+  { name: 'Tipos de Caída', id: 'tipos' },
+  { name: 'Ejemplos', id: 'ejemplos' },
+  { name: 'Videos', id: 'videos' },
+  { name: 'Experimentos', id: 'experimentos' },
+  { name: 'Ejercicios', id: 'ejercicios' },
+  { name: 'FAQ', id: 'faq' },
+]
+---
+
+<DefaultLayout title="Caída Libre">
+  <PageHeader
+    title="Caída Libre"
+    subtitle="Movimiento vertical bajo la acción exclusiva de la gravedad 🌍 Aprende cómo los objetos caen y las leyes que lo explican."
+    bgType="gradient"
+  />
+
+  <section class="mt-16 mb-12">
+    <div class="components container">
+      <div class="components-showcase space-content">
+
+        <!-- 🔹 Introducción -->
+        <Heading level="h2" id="introduccion">Introducción a la Caída Libre</Heading>
+        <p>
+          La <strong>caída libre</strong> es un fenómeno físico donde un objeto se mueve solo bajo el efecto de la gravedad,
+          sin ninguna otra fuerza actuando sobre él (como el aire). Es un tipo de <strong>Movimiento Rectilíneo Uniformemente Acelerado</strong>
+          con aceleración constante igual a la gravedad: <code>g = 9.81 m/s²</code>.
+        </p>
+
+        <Notification type="info" variant="soft">
+          <Icon name="lucide:flask-conical" aria-hidden="true" />
+          <p><strong>Dato curioso:</strong> En la Luna, la gravedad es solo <code>1.6 m/s²</code>, ¡así que los objetos caen más lentamente!</p>
+        </Notification>
+
+        <!-- 🔹 Hero Concepto -->
+        <div class="hero-box">
+          <div class="hero-icon">
+            <Icon name="lucide:arrow-down-circle" size="4rem" />
+          </div>
+          <div>
+            <Heading level="h3">Concepto Clave 🌟</Heading>
+            <p>
+              En caída libre, todos los cuerpos caen con la <strong>misma aceleración</strong>, independientemente de su masa o forma, 
+              siempre que se desprecie la resistencia del aire.
+            </p>
+          </div>
+        </div>
+
+        <!-- 🔹 Características -->
+        <Heading level="h2" id="caracteristicas">Características Principales</Heading>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <Card variant="soft"
+            title="Aceleración Constante"         
+            img="/images/aceleracion_constante.webp"
+            imageAlt="Aceleración Constante"
+          >
+            <Icon name="lucide:gauge" size="2rem" />
+            <Heading level="h3">Aceleración Constante</Heading>
+            <p>El valor de <strong>g</strong> es constante en toda la caída, aproximadamente 9.81 m/s².</p>
+          </Card>
+
+          <Card variant="soft"
+            title="Movimiento Vertical"         
+            img="/images/movimiento_vertical.webp"
+            imageAlt="Movimiento Vertical"
+          >
+            <Icon name="lucide:move-vertical" size="2rem" />
+            <Heading level="h3">Movimiento Vertical</Heading>
+            <p>El desplazamiento ocurre en una sola dirección: <strong>hacia el centro de la Tierra</strong>.</p>
+          </Card>
+
+          <Card variant="soft"
+            title="Sin Resistencia del Aire"         
+            img="/images/resistencia_aire.webp"
+            imageAlt="Sin Resistencia del Aire"
+          >
+            <Icon name="lucide:wind" size="2rem" />
+            <Heading level="h3">Sin Resistencia del Aire</Heading>
+            <p>En el modelo ideal, se desprecia el aire. Por eso, una piedra y una pluma caerían igual en el vacío.</p>
+          </Card>
+
+          <Card variant="soft"
+            title="Independiente de la Masa"         
+            img="/images/inde_masa.webp"
+            imageAlt="Independiente de la Masa"
+          >
+            <Icon name="lucide:scale" size="2rem" />
+            <Heading level="h3">Independiente de la Masa</Heading>
+            <p>Galileo demostró que el peso no afecta la velocidad de caída.</p>
+          </Card>
+        </div>
+
+        <!-- 🔹 Fórmulas -->
+        <Heading level="h2" id="formulas">Fórmulas Fundamentales 📘</Heading>
+        <div class="formula-grid">
+          <div class="formula-card">
+            <Heading level="h3">Velocidad Final</Heading>
+            <code>v = v₀ + g·t</code>
+            <p>Velocidad del objeto tras caer durante un tiempo <strong>t</strong>.</p>
+          </div>
+          <div class="formula-card">
+            <Heading level="h3">Altura Recorrida</Heading>
+            <code>h = ½·g·t²</code>
+            <p>Altura total recorrida desde el reposo.</p>
+          </div>
+          <div class="formula-card">
+            <Heading level="h3">Ecuación sin Tiempo</Heading>
+            <code>v² = 2·g·h</code>
+            <p>Relaciona la velocidad y la altura directamente.</p>
+          </div>
+          <div class="formula-card">
+            <Heading level="h3">Tiempo de Caída</Heading>
+            <code>t = √(2h / g)</code>
+            <p>Permite calcular el tiempo que tarda en caer desde una altura h.</p>
+          </div>
+        </div>
+
+        <!-- 🔹 Ejemplos -->
+        <Heading level="h2" id="ejemplos">Ejemplos Prácticos ✏️</Heading>
+        <div class="example-card">
+          <Icon name="lucide:book" />
+          <p><strong>Ejemplo 1:</strong> Una piedra cae desde 80 m. <br /> 
+          <em>Solución:</em> t = 4 s, v = 40 m/s</p>
+        </div>
+        <div class="example-card">
+          <Icon name="lucide:book" />
+          <p><strong>Ejemplo 2:</strong> Una pelota lanzada a 30 m/s alcanza 45 m de altura. <br /> 
+          <em>Tiempo total:</em> 6 s</p>
+        </div>
+
+        <!-- 🔹 Videos -->
+        <Heading level="h2" id="videos">Videos Educativos 🎥</Heading>
+        <div class="video-section">
+          <Video src="https://www.youtube.com/watch?v=jycdP8v2hzU" title="Caída Libre - Fundamentos y Teoría" />
+          <Video src="https://www.youtube.com/watch?v=pMb57mjPCZ8" title="Caída Libre - Ejercicios y Problemas" />
+        </div>
+
+        <!-- 🔹 Experimentos -->
+        <Heading level="h2" id="experimentos">Experimentos Famosos 🔬</Heading>
+        <div class="experiments-grid">
+          <Card
+          title="Torre de Pisa"
+          img="/images/torre-pisa.webp"
+          imageAlt="Torre de Pisa"
+          ><Heading level="h3">Torre de Pisa</Heading><p>Galileo demostró que objetos de distintas masas caen igual.</p></Card>
+          <Card
+          title="Apolo 15"
+          img="/images/apolo-15.webp"
+          imageAlt="Apolo 15"
+          ><Heading level="h3">Apolo 15</Heading><p>Una pluma y un martillo cayeron juntos en la Luna.</p></Card>
+          <Card
+          title="Tubo de Newton"
+          img="/images/tubo-newton.webp"
+          imageAlt="Tubo de Newton"
+          ><Heading level="h3">Tubo de Newton</Heading><p>En el vacío, una pluma y una moneda caen a la misma velocidad.</p></Card>
+        </div>
+
+        <!-- 🔹 Ejercicios -->
+        <Heading level="h2" id="ejercicios">Ejercicios Propuestos 💡</Heading>
+        <div class="exercise-grid">
+          <div class="exercise"><span>1️⃣</span> Calcula la velocidad con que cae una manzana desde 5 m.</div>
+          <div class="exercise"><span>2️⃣</span> ¿Qué altura alcanza una pelota lanzada a 20 m/s?</div>
+          <div class="exercise"><span>3️⃣</span> Un objeto tarda 4 s en caer. ¿Desde qué altura se soltó?</div>
+          <div class="exercise"><span>4️⃣</span> Un paquete cae desde 200 m. Calcula su velocidad al impactar.</div>
+          <div class="exercise"><span>5️⃣</span> Una piedra lanzada hacia abajo a 10 m/s desde 45 m. ¿Tiempo total?</div>
+          <div class="exercise"><span>6️⃣</span> Una flecha sube y baja en 8 s. ¿Velocidad inicial?</div>
+          <div class="exercise"><span>7️⃣</span> Dos objetos se sueltan con 2 s de diferencia. ¿Distancia entre ellos al final?</div>
+          <div class="exercise"><span>8️⃣</span> En la Luna (g = 1.6 m/s²), ¿cuánto tarda un objeto en caer 45 m?</div>
+        </div>
+
+        <!-- 🔹 FAQ -->
+        <Heading level="h2" id="faq">Preguntas Frecuentes (FAQ) ❓</Heading>
+        <Accordion>
+          <AccordionItem title="¿Por qué los objetos caen con la misma aceleración?">
+            Porque la aceleración solo depende de la gravedad, no de la masa.
+          </AccordionItem>
+          <AccordionItem title="¿Qué pasa si hay aire?">
+            El aire genera resistencia y reduce la aceleración, afectando objetos livianos más que pesados.
+          </AccordionItem>
+          <AccordionItem title="¿Cuál es la aceleración en la Luna?">
+            Es de aproximadamente 1.6 m/s².
+          </AccordionItem>
+          <AccordionItem title="¿La caída libre puede ser hacia arriba?">
+            Sí, durante un lanzamiento vertical hacia arriba, el objeto está bajo acción de la gravedad todo el tiempo.
+          </AccordionItem>
+        </Accordion>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* 🎨 Colores dinámicos */
+    :root {
+      --bg-light: #f9fafc;
+      --bg-dark: #0e1117;
+      --primary: #3b82f6;
+      --accent: #22d3ee;
+      --text-light: #111827;
+      --text-dark: #f3f4f6;
+      --card-light: #ffffff;
+      --card-dark: #1e293b;
+    }
+
+    html[data-theme='light'] {
+      --bg-color: var(--bg-light);
+      --text-color: var(--text-light);
+      --card-color: var(--card-light);
+    }
+
+    html[data-theme='dark'] {
+      --bg-color: var(--bg-dark);
+      --text-color: var(--text-dark);
+      --card-color: var(--card-dark);
+    }
+
+    section {
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* 💫 Hero */
+    .hero-box {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      padding: 1.2rem;
+      border-radius: 0.8rem;
+      margin: 2rem 0;
+    }
+
+    /* 📘 Fórmulas */
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .formula-card {
+      background: var(--card-color);
+      border-left: 5px solid var(--primary);
+      padding: 1rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* 🧠 Ejercicios */
+    .exercise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .exercise {
+      background: var(--card-color);
+      border: 1px solid var(--primary);
+      border-radius: 0.5rem;
+      padding: 0.8rem;
+      transition: transform 0.2s;
+    }
+
+    .exercise:hover {
+      transform: scale(1.03);
+      background: var(--primary);
+      color: white;
+    }
+
+    /* 🌈 Videos */
+    .video-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    /* 🧪 Experimentos */
+    .experiments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .example-card {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--card-color);
+      border-left: 5px solid var(--accent);
+      padding: 0.8rem;
+      border-radius: 0.6rem;
+      margin: 0.5rem 0;
+    }
+  </style>
+</DefaultLayout>

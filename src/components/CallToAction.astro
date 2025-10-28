@@ -1,0 +1,214 @@
+---
+import { Heading, Link } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+
+/**
+ * Banner Universidad San Juan Bautista
+ *
+ * @description Banner promocional elaborado por estudiante de 2do ciclo
+ */
+interface Props {
+  /**
+   * El título del banner
+   * @default "Universidad San Juan Bautista"
+   */
+  title?: string
+  /**
+   * El subtítulo o lema
+   * @default "Formando profesionales con excelencia"
+   */
+  subtitle?: string
+  /**
+   * URL del enlace principal
+   * @default "https://www.upsjb.edu.pe/"
+   */
+  link?: string
+  /**
+   * Texto del botón
+   * @default "Conoce más"
+   */
+  linkText?: string
+}
+
+const {
+  title = 'Universidad San Juan Bautista',
+  subtitle = 'Formando profesionales con excelencia',
+  link = 'https://www.upsjb.edu.pe/',
+  linkText = 'Conoce más',
+  
+} = Astro.props
+
+---
+
+<div class="container">
+  <div class="banner-usjb mt-16 mb-24 rounded-2xl overflow-hidden shadow-2xl">
+    <div class="banner-content px-8 py-16 md:px-16 md:py-20 flex flex-col items-center gap-8 text-center relative">
+      <!-- Decoración de fondo -->
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+      <div class="decoration-circle circle-3"></div>
+      
+      <!-- Logo placeholder -->
+      <div class="logo-container mb-4">
+        <div class="logo-placeholder">
+          <Icon aria-hidden="true" name="lucide:graduation-cap" size="4rem" />
+        </div>
+      </div>
+      
+      <!-- Contenido -->
+      <div class="content-wrapper relative z-10">
+        <Heading level="h1" class="banner-title text-4xl md:text-6xl font-bold mb-4">
+          {title}
+        </Heading>
+        <p class="banner-subtitle text-xl md:text-2xl mb-8 opacity-90">
+          {subtitle}
+        </p>
+        
+        <Link 
+          href={link} 
+          isButton 
+          size="lg" 
+          animateOnHover 
+          animationType="nudge"
+          class="cta-button"
+          target="_blank"
+        >
+          {linkText}
+          <Icon aria-hidden="true" name="lucide:arrow-right" size="1.5rem" />
+        </Link>
+      </div>
+      
+      <!-- Créditos del estudiante -->
+      <div class="credits relative z-10 mt-8">
+        <p class="text-sm opacity-75">
+          <Icon aria-hidden="true" name="lucide:user" size="1rem" class="inline" />
+          mesadepartes@upsjb.edu.pe
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../assets/scss/base/mixins' as *;
+
+  .banner-usjb {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      #1e3a8a 0%,
+      #3b82f6 50%,
+      #60a5fa 100%
+    );
+    border: 3px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .banner-content {
+    position: relative;
+    color: white;
+  }
+
+  .decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+  }
+
+  .circle-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+  }
+
+  .circle-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .circle-3 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .logo-container {
+    .logo-placeholder {
+      width: 120px;
+      height: 120px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      
+      svg {
+        color: white;
+      }
+    }
+  }
+
+  .content-wrapper {
+    max-width: 900px;
+  }
+
+  .banner-title {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .banner-subtitle {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+  }
+
+  .cta-button {
+    background: white !important;
+    color: #1e3a8a !important;
+    font-weight: 600;
+    padding: 1rem 2.5rem !important;
+    border-radius: 50px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .credits {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 768px) {
+    .banner-title {
+      font-size: 2rem;
+    }
+
+    .banner-subtitle {
+      font-size: 1.125rem;
+    }
+
+    .logo-placeholder {
+      width: 80px !important;
+      height: 80px !important;
+      
+      svg {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+      }
+    }
+  }
+</style>

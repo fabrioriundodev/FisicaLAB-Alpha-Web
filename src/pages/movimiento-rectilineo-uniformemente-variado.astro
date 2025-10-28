@@ -1,0 +1,1094 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading, Card, Media, Video, Accordion, AccordionItem, Notification } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+
+const topicsNavigation = [
+  { name: 'Introducción', id: 'introduccion' },
+  { name: 'Características', id: 'caracteristicas' },
+  { name: 'Fórmulas Fundamentales', id: 'formulas' },
+  { name: 'Gráficas del MRUV', id: 'graficas' },
+  { name: 'Ejemplos Resueltos', id: 'ejemplos' },
+  { name: 'Caída Libre', id: 'caida-libre' },
+  { name: 'Videos Educativos', id: 'videos' },
+  { name: 'Ejercicios Propuestos', id: 'ejercicios' },
+  { name: 'Preguntas Frecuentes', id: 'faq' },
+]
+---
+
+<DefaultLayout title="Movimiento Rectilíneo Uniformemente Variado (MRUV)">
+  <PageHeader
+    title="Movimiento Rectilíneo Uniformemente Variado (MRUV)"
+    subtitle="Análisis del movimiento con aceleración constante. Descubre las ecuaciones del MRUV y sus aplicaciones en la física del movimiento."
+    bgType="bordered"
+  />
+
+  <section class="mt-16 mb-12">
+    <div class="components container">
+      <div class="components-showcase space-content">
+        
+        <!-- Introducción -->
+        <Heading level="h2" id="introduccion">Introducción al MRUV</Heading>
+        <p>
+          El <strong>Movimiento Rectilíneo Uniformemente Variado (MRUV)</strong> es un tipo de movimiento en el cual 
+          un objeto se desplaza en línea recta y su velocidad cambia de manera uniforme con el tiempo. A diferencia 
+          del MRU, en el MRUV existe una <strong>aceleración constante</strong> que provoca que la velocidad aumente 
+          o disminuya a una tasa constante.
+        </p>
+        <p>
+          Este concepto es fundamental para entender situaciones cotidianas como un automóvil que acelera desde el 
+          reposo, un objeto en caída libre, o un tren que frena hasta detenerse. El MRUV es la base para comprender 
+          movimientos más complejos en la física.
+        </p>
+
+        <Notification type="info" variant="accent">
+          <Icon aria-hidden="true" name="lucide:lightbulb" />
+          <p>
+            <strong>Dato clave:</strong> En el MRUV, la aceleración es constante, pero la velocidad cambia linealmente 
+            con el tiempo. Esto significa que cada segundo que pasa, la velocidad aumenta o disminuye en la misma cantidad.
+          </p>
+        </Notification>
+
+        <!-- Características -->
+        <Heading level="h2" id="caracteristicas">Características del MRUV</Heading>
+        <p>
+          El Movimiento Rectilíneo Uniformemente Variado presenta las siguientes características distintivas:
+        </p>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <Card
+            title="Trayectoria Rectilínea"
+            img="/images/TrayectoriaRectilinea.webp"
+            imageAlt="Trayectoria Rectilinea"
+          >
+            <div class="card-icon">
+              <Icon aria-hidden="true" name="lucide:move-right" size="2rem" />
+            </div>
+            <Heading level="h3">Trayectoria Rectilínea</Heading>
+            <p>El objeto se desplaza en una línea recta, sin cambiar de dirección durante el movimiento.</p>
+          </Card>
+
+          <Card
+            title="Aceleración Constante"         
+            img="/images/aceleracion-constante.webp"
+            imageAlt="Aceleración Constante"
+          >
+            <div class="card-icon">
+              <Icon aria-hidden="true" name="lucide:trending-up" size="2rem" />
+            </div>
+            <Heading level="h3">Aceleración Constante</Heading>
+            <p>La aceleración permanece constante y diferente de cero durante todo el movimiento (a ≠ 0).</p>
+          </Card>
+
+          <Card
+            title="Velocidad Variable"
+            img="/images/velocidad-variable.webp"
+            imageAlt="Velocidad Variable"
+          >
+            <div class="card-icon">
+              <Icon aria-hidden="true" name="lucide:gauge" size="2rem" />
+            </div>
+            <Heading level="h3">Velocidad Variable</Heading>
+            <p>La velocidad cambia uniformemente con el tiempo, aumentando o disminuyendo de forma constante.</p>
+          </Card>
+
+          <Card
+            title="Cambio Uniforme"
+            img="/images/cambio-uniforme.webp"
+            imageAlt="Cambio Uniforme"
+          >
+            <div class="card-icon">
+              <Icon aria-hidden="true" name="lucide:activity" size="2rem" />
+            </div>
+            <Heading level="h3">Cambio Uniforme</Heading>
+            <p>En intervalos de tiempo iguales, la velocidad experimenta cambios iguales.</p>
+          </Card>
+        </div>
+
+        <!-- Fórmulas Fundamentales -->
+        <Heading level="h2" id="formulas">Fórmulas Fundamentales del MRUV</Heading>
+        <p>
+          El MRUV se describe mediante tres ecuaciones principales que relacionan posición, velocidad, aceleración y tiempo:
+        </p>
+
+        <div class="formula-box">
+          <Heading level="h3">1. Ecuación de Velocidad Final</Heading>
+          <code>v = v₀ + a × t</code>
+          <p><strong>Descripción:</strong> Permite calcular la velocidad en cualquier instante conociendo la velocidad inicial, aceleración y tiempo.</p>
+          <p><strong>Donde:</strong></p>
+          <ul class="list-inside list-disc">
+            <li><strong>v</strong> = velocidad final (m/s)</li>
+            <li><strong>v₀</strong> = velocidad inicial (m/s)</li>
+            <li><strong>a</strong> = aceleración (m/s²)</li>
+            <li><strong>t</strong> = tiempo (s)</li>
+          </ul>
+        </div>
+
+        <div class="formula-box">
+          <Heading level="h3">2. Ecuación de Posición</Heading>
+          <code>x = x₀ + v₀ × t + ½ × a × t²</code>
+          <p><strong>Descripción:</strong> Calcula la posición del móvil en cualquier instante, considerando la posición inicial, velocidad inicial, aceleración y tiempo.</p>
+          <p><strong>Donde:</strong></p>
+          <ul class="list-inside list-disc">
+            <li><strong>x</strong> = posición final (m)</li>
+            <li><strong>x₀</strong> = posición inicial (m)</li>
+            <li><strong>v₀</strong> = velocidad inicial (m/s)</li>
+            <li><strong>a</strong> = aceleración (m/s²)</li>
+            <li><strong>t</strong> = tiempo (s)</li>
+          </ul>
+        </div>
+
+        <div class="formula-box">
+          <Heading level="h3">3. Ecuación Independiente del Tiempo</Heading>
+          <code>v² = v₀² + 2 × a × d</code>
+          <p><strong>Descripción:</strong> Relaciona velocidades, aceleración y distancia sin necesidad de conocer el tiempo transcurrido.</p>
+          <p><strong>Donde:</strong></p>
+          <ul class="list-inside list-disc">
+            <li><strong>v</strong> = velocidad final (m/s)</li>
+            <li><strong>v₀</strong> = velocidad inicial (m/s)</li>
+            <li><strong>a</strong> = aceleración (m/s²)</li>
+            <li><strong>d</strong> = distancia recorrida (m)</li>
+          </ul>
+        </div>
+
+        <Notification type="warning" variant="accent">
+          <Icon aria-hidden="true" name="lucide:alert-triangle" />
+          <p>
+            <strong>Importante:</strong> Si el móvil desacelera (frena), la aceleración es negativa. Si acelera, la aceleración es positiva.
+          </p>
+        </Notification>
+
+        <!-- Gráficas del MRUV -->
+        <Heading level="h2" id="graficas">Gráficas del MRUV</Heading>
+        <p>
+          Las representaciones gráficas son herramientas esenciales para analizar y comprender el MRUV:
+        </p>
+
+        <div class="graphics-container">
+          <div class="graphic-card">
+            <Heading level="h3">Gráfica Posición vs Tiempo (x vs t)</Heading>
+            <div class="graphic-content">
+              <Icon aria-hidden="true" name="lucide:trending-up" size="4rem" />
+              <ul class="list-inside list-disc">
+                <li>Representa una parábola (curva)</li>
+                <li>Si la parábola abre hacia arriba: aceleración positiva</li>
+                <li>Si la parábola abre hacia abajo: aceleración negativa</li>
+                <li>La pendiente de la tangente en cada punto indica la velocidad instantánea</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="graphic-card">
+            <Heading level="h3">Gráfica Velocidad vs Tiempo (v vs t)</Heading>
+            <div class="graphic-content">
+              <Icon aria-hidden="true" name="lucide:arrow-up-right" size="4rem" />
+              <ul class="list-inside list-disc">
+                <li>Representa una línea recta inclinada</li>
+                <li>La pendiente de la recta es igual a la aceleración</li>
+                <li>Si la pendiente es positiva: el móvil acelera</li>
+                <li>Si la pendiente es negativa: el móvil desacelera</li>
+                <li>El área bajo la curva representa el desplazamiento</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="graphic-card">
+            <Heading level="h3">Gráfica Aceleración vs Tiempo (a vs t)</Heading>
+            <div class="graphic-content">
+              <Icon aria-hidden="true" name="lucide:minus" size="4rem" />
+              <ul class="list-inside list-disc">
+                <li>Representa una línea horizontal (paralela al eje del tiempo)</li>
+                <li>Indica que la aceleración es constante durante todo el movimiento</li>
+                <li>El área bajo la curva representa el cambio de velocidad</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ejemplos Resueltos -->
+        <Heading level="h2" id="ejemplos">Ejemplos Resueltos</Heading>
+        <p>
+          A continuación, se presentan ejemplos prácticos que ilustran la aplicación de las fórmulas del MRUV:
+        </p>
+
+        <div class="example-box">
+          <Heading level="h3">Ejemplo 1: Aceleración de un Automóvil</Heading>
+          <p>
+            Un automóvil parte del reposo y acelera uniformemente hasta alcanzar una velocidad de 72 km/h en 10 segundos. 
+            Calcular: a) la aceleración, b) la distancia recorrida.
+          </p>
+          
+          <div class="solution">
+            <p><strong>Datos:</strong></p>
+            <ul class="list-inside list-disc">
+              <li>v₀ = 0 m/s (parte del reposo)</li>
+              <li>v = 72 km/h = 20 m/s</li>
+              <li>t = 10 s</li>
+            </ul>
+
+            <p><strong>a) Cálculo de la aceleración:</strong></p>
+            <p>Usamos: v = v₀ + a × t</p>
+            <code>20 = 0 + a × 10</code>
+            <code>a = 20 / 10 = 2 m/s²</code>
+            <p class="result">Respuesta: La aceleración es 2 m/s²</p>
+
+            <p><strong>b) Cálculo de la distancia:</strong></p>
+            <p>Usamos: d = v₀ × t + ½ × a × t²</p>
+            <code>d = 0 × 10 + ½ × 2 × (10)²</code>
+            <code>d = 0 + 1 × 100 = 100 m</code>
+            <p class="result">Respuesta: El automóvil recorre 100 metros</p>
+          </div>
+        </div>
+
+        <div class="example-box">
+          <Heading level="h3">Ejemplo 2: Frenado de un Tren</Heading>
+          <p>
+            Un tren que viaja a 90 km/h comienza a frenar con una desaceleración constante de 2.5 m/s². 
+            Calcular: a) el tiempo que tarda en detenerse, b) la distancia de frenado.
+          </p>
+          
+          <div class="solution">
+            <p><strong>Datos:</strong></p>
+            <ul class="list-inside list-disc">
+              <li>v₀ = 90 km/h = 25 m/s</li>
+              <li>v = 0 m/s (se detiene)</li>
+              <li>a = -2.5 m/s² (desaceleración, por eso es negativa)</li>
+            </ul>
+
+            <p><strong>a) Cálculo del tiempo:</strong></p>
+            <p>Usamos: v = v₀ + a × t</p>
+            <code>0 = 25 + (-2.5) × t</code>
+            <code>2.5t = 25</code>
+            <code>t = 25 / 2.5 = 10 s</code>
+            <p class="result">Respuesta: El tren tarda 10 segundos en detenerse</p>
+
+            <p><strong>b) Cálculo de la distancia de frenado:</strong></p>
+            <p>Usamos: v² = v₀² + 2 × a × d</p>
+            <code>0² = 25² + 2 × (-2.5) × d</code>
+            <code>0 = 625 - 5d</code>
+            <code>d = 625 / 5 = 125 m</code>
+            <p class="result">Respuesta: La distancia de frenado es 125 metros</p>
+          </div>
+        </div>
+
+        <div class="example-box">
+          <Heading level="h3">Ejemplo 3: Encuentro de dos Móviles</Heading>
+          <p>
+            Dos automóviles parten simultáneamente: el primero desde el reposo con aceleración de 3 m/s², 
+            y el segundo a 20 m/s con desaceleración de 2 m/s². ¿Cuándo tendrán la misma velocidad?
+          </p>
+          
+          <div class="solution">
+            <p><strong>Datos:</strong></p>
+            <p><strong>Automóvil 1:</strong></p>
+            <ul class="list-inside list-disc">
+              <li>v₀₁ = 0 m/s</li>
+              <li>a₁ = 3 m/s²</li>
+            </ul>
+            <p><strong>Automóvil 2:</strong></p>
+            <ul class="list-inside list-disc">
+              <li>v₀₂ = 20 m/s</li>
+              <li>a₂ = -2 m/s²</li>
+            </ul>
+
+            <p><strong>Condición: v₁ = v₂</strong></p>
+            <code>v₀₁ + a₁ × t = v₀₂ + a₂ × t</code>
+            <code>0 + 3t = 20 + (-2)t</code>
+            <code>3t = 20 - 2t</code>
+            <code>5t = 20</code>
+            <code>t = 4 s</code>
+            <p class="result">Respuesta: Ambos automóviles tendrán la misma velocidad a los 4 segundos</p>
+            
+            <p><strong>Velocidad común:</strong></p>
+            <code>v = 0 + 3 × 4 = 12 m/s</code>
+            <p class="result">Ambos tendrán 12 m/s en ese instante</p>
+          </div>
+        </div>
+
+        <!-- Caída Libre -->
+        <Heading level="h2" id="caida-libre">Caso Especial: Caída Libre</Heading>
+        <p>
+          La <strong>caída libre</strong> es un caso particular del MRUV donde la aceleración es la gravedad (g ≈ 9.8 m/s² o 10 m/s²). 
+          Ocurre cuando un objeto cae verticalmente bajo la acción exclusiva de la gravedad, sin resistencia del aire.
+        </p>
+
+        <div class="info-box">
+          <Icon aria-hidden="true" name="lucide:arrow-down" size="3rem" />
+          <div>
+            <Heading level="h3">Características de la Caída Libre</Heading>
+            <ul class="list-inside list-disc">
+              <li>Aceleración constante: a = g = 9.8 m/s² (dirigida hacia abajo)</li>
+              <li>Velocidad inicial puede ser cero (objeto soltado) o diferente de cero (objeto lanzado)</li>
+              <li>La trayectoria es vertical</li>
+              <li>No se considera la resistencia del aire</li>
+            </ul>
+
+            <p><strong>Fórmulas para Caída Libre:</strong></p>
+            <ul class="list-inside list-disc">
+              <li>Velocidad: v = v₀ + g × t</li>
+              <li>Altura: h = h₀ + v₀ × t + ½ × g × t²</li>
+              <li>v² = v₀² + 2 × g × h</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Videos Educativos -->
+        <Heading level="h2" id="videos">Videos Educativos</Heading>
+        <p>
+          Explora estos videos para profundizar tu comprensión del MRUV con explicaciones visuales y ejemplos prácticos:
+        </p>
+
+        <div class="video-section">
+          <div class="video-card">
+            <Heading level="h3">MRUV - Conceptos Fundamentales</Heading>
+            <p>Explicación completa de las ecuaciones del MRUV con ejemplos resueltos paso a paso.</p>
+            <Video 
+              src="https://www.youtube.com/watch?v=94-W8kiAmCg" 
+              title="MRUV - Movimiento Rectilíneo Uniformemente Variado"
+            />
+          </div>
+
+          <div class="video-card">
+            <Heading level="h3">MRUV - Ejercicios Resueltos</Heading>
+            <p>Problemas prácticos de MRUV resueltos de manera detallada para reforzar el aprendizaje.</p>
+            <Video 
+              src="https://www.youtube.com/watch?v=bZKfacNLp5Q" 
+              title="MRUV - Ejercicios Resueltos"
+            />
+          </div>
+        </div>
+
+        <!-- Ejercicios Propuestos -->
+        <Heading level="h2" id="ejercicios">Ejercicios Propuestos</Heading>
+        <p>
+          Practica tus conocimientos resolviendo estos ejercicios. Intenta resolverlos antes de ver las respuestas.
+        </p>
+
+        <div class="exercises-container">
+          <div class="exercise-card">
+            <span class="exercise-number">1</span>
+            <p>Un ciclista parte del reposo y acelera a 1.5 m/s² durante 8 segundos. ¿Qué velocidad alcanza y qué distancia recorre?</p>
+          </div>
+
+          <div class="exercise-card">
+            <span class="exercise-number">2</span>
+            <p>Un objeto se lanza verticalmente hacia arriba con una velocidad inicial de 30 m/s. ¿Qué altura máxima alcanza? (g = 10 m/s²)</p>
+          </div>
+
+          <div class="exercise-card">
+            <span class="exercise-number">3</span>
+            <p>Un móvil viaja a 25 m/s y comienza a desacelerar a -5 m/s². ¿Cuánto tiempo tarda en detenerse y qué distancia recorre?</p>
+          </div>
+
+          <div class="exercise-card">
+            <span class="exercise-number">4</span>
+            <p>Una pelota se deja caer desde una altura de 80 metros. ¿Con qué velocidad llega al suelo? (g = 10 m/s²)</p>
+          </div>
+
+          <div class="exercise-card">
+            <span class="exercise-number">5</span>
+            <p>Dos trenes parten simultáneamente de estaciones separadas 500 m. El primero acelera a 2 m/s² y el segundo a 1.5 m/s². ¿Cuándo se encuentran?</p>
+          </div>
+
+          <div class="exercise-card">
+            <span class="exercise-number">6</span>
+            <p>Un auto que va a 108 km/h frena uniformemente y se detiene en 6 segundos. Calcular la aceleración y la distancia de frenado.</p>
+          </div>
+        </div>
+
+        <!-- Preguntas Frecuentes -->
+        <Heading level="h2" id="faq">Preguntas Frecuentes</Heading>
+        <p>Resuelve tus dudas sobre el MRUV con estas preguntas frecuentes:</p>
+
+        <Accordion>
+          <AccordionItem title="¿Cuál es la diferencia entre MRU y MRUV?" variant="chevron">
+            <p>
+              En el <strong>MRU</strong>, la velocidad es constante y la aceleración es cero. En el <strong>MRUV</strong>, 
+              la velocidad cambia uniformemente debido a una aceleración constante diferente de cero.
+            </p>
+            <ul class="list-inside list-disc">
+              <li><strong>MRU:</strong> v = constante, a = 0</li>
+              <li><strong>MRUV:</strong> v = variable, a = constante ≠ 0</li>
+            </ul>
+          </AccordionItem>
+
+          <AccordionItem title="¿Qué significa que la aceleración sea negativa?" variant="chevron">
+            <p>
+              Una aceleración negativa indica que el objeto está <strong>desacelerando o frenando</strong>. Significa que 
+              la velocidad está disminuyendo con el tiempo. También se le llama desaceleración o aceleración de frenado.
+            </p>
+          </AccordionItem>
+
+          <AccordionItem title="¿Cuándo uso cada fórmula del MRUV?" variant="chevron">
+            <p>Depende de los datos que tengas:</p>
+            <ul class="list-inside list-disc">
+              <li><strong>v = v₀ + at:</strong> Cuando conoces velocidades, aceleración y tiempo</li>
+              <li><strong>x = x₀ + v₀t + ½at²:</strong> Cuando necesitas calcular posición o desplazamiento</li>
+              <li><strong>v² = v₀² + 2ad:</strong> Cuando no conoces el tiempo o cuando relacionas velocidades con distancia</li>
+            </ul>
+          </AccordionItem>
+
+          <AccordionItem title="¿Cómo sé si un problema es de caída libre?" variant="chevron">
+            <p>
+              Un problema es de caída libre cuando:
+            </p>
+            <ul class="list-inside list-disc">
+              <li>El objeto cae verticalmente (o se lanza hacia arriba/abajo)</li>
+              <li>Solo actúa la gravedad (no hay otras fuerzas)</li>
+              <li>La aceleración es g = 9.8 m/s² (o 10 m/s² aproximado)</li>
+              <li>Se desprecia la resistencia del aire</li>
+            </ul>
+          </AccordionItem>
+
+          <AccordionItem title="¿Por qué en caída libre uso g = -9.8 m/s²?" variant="chevron">
+            <p>
+              El signo negativo depende del <strong>sistema de referencia</strong> que elijas:
+            </p>
+            <ul class="list-inside list-disc">
+              <li>Si el eje Y apunta hacia <strong>arriba</strong>: g = -9.8 m/s² (la gravedad apunta hacia abajo)</li>
+              <li>Si el eje Y apunta hacia <strong>abajo</strong>: g = +9.8 m/s² (la gravedad apunta en la misma dirección)</li>
+            </ul>
+            <p>Lo importante es ser consistente con el sistema de referencia elegido.</p>
+          </AccordionItem>
+
+          <AccordionItem title="¿Qué significa 'parte del reposo'?" variant="chevron">
+            <p>
+              Cuando un problema dice que un objeto <strong>"parte del reposo"</strong>, significa que su 
+              <strong>velocidad inicial es cero</strong> (v₀ = 0 m/s). Esto simplifica muchas ecuaciones del MRUV.
+            </p>
+          </AccordionItem>
+        </Accordion>
+
+        <!-- Conclusión -->
+        <div class="conclusion-box">
+          <Icon aria-hidden="true" name="lucide:check-circle" size="3rem" />
+          <div>
+            <Heading level="h2">Conclusión</Heading>
+            <p>
+              El Movimiento Rectilíneo Uniformemente Variado es fundamental en la física, ya que modela una gran 
+              cantidad de situaciones reales donde los objetos aceleran o frenan. Dominar sus ecuaciones y comprender 
+              sus gráficas te permitirá analizar desde el movimiento de vehículos hasta la caída de objetos.
+            </p>
+            <p>
+              Recuerda que la práctica constante es clave para dominar el MRUV. Resuelve ejercicios, analiza problemas 
+              reales y no dudes en consultar los videos educativos para reforzar tu aprendizaje.
+            </p>
+          </div>
+        </div>
+
+        <!-- Información de Publicación -->
+        <div class="publication-info">
+          <Heading level="h2">Información de Publicación</Heading>
+          <p>
+            Este material educativo fue preparado para estudiantes de Física I de la <strong>Universidad Privada 
+            San Juan Bautista</strong>. Última actualización: <strong>Octubre 2025</strong>.
+          </p>
+          <p>
+            Para más recursos educativos y ejercicios adicionales, consulta con tu profesor o visita la biblioteca 
+            virtual de la universidad.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Navegación lateral -->
+      <div class="components-navigation space-content">
+        <Heading level="h3" size="h4">En esta página</Heading>
+        <nav aria-label="Navegación de temas">
+          <ul class="list-none">
+            {
+              topicsNavigation.map((topic) => (
+                <li class="my-1">
+                  <a class="text-sm" href={`#${topic.id}`}>
+                    {topic.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('.components-navigation a')
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const link = document.querySelector(`a[href="#${entry.target.id}"]`)
+              if (link) {
+                navLinks.forEach((l) => l.classList.remove('active'))
+                link.classList.add('active')
+              }
+            }
+          })
+        },
+        { rootMargin: '0px 0px -70% 0px', threshold: 0.1 },
+      )
+
+      navLinks.forEach((link) => {
+        const id = link.getAttribute('href')?.replace('#', '')
+        const heading = id && document.getElementById(id)
+        if (heading) observer.observe(heading)
+      })
+    })
+  </script>
+
+  <style lang="scss">
+    @use '../assets/scss/base/breakpoint' as *;
+
+    .components {
+      display: grid;
+      position: relative;
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+
+      @include breakpoint(m) {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .components-showcase {
+      @include breakpoint(m) {
+        border-inline-end: 1px solid var(--border-color-subtle);
+        padding-inline-end: var(--space-l);
+      }
+    }
+
+    .components-navigation {
+      grid-row: 1;
+
+      @include breakpoint(m) {
+        position: sticky;
+        grid-row: auto;
+        align-self: start;
+        inset-block-start: var(--space-l);
+        padding-inline-end: var(--space-l);
+        max-inline-size: 100%;
+        max-block-size: calc(100vh - var(--space-l) * 2);
+        overflow-y: auto;
+      }
+    }
+
+    .components-navigation a {
+      display: inline-block;
+      transition: all var(--animation-speed-slow) var(--cubic-bezier);
+      color: var(--neutral-700, #4a5568);
+    }
+
+    :global(.darkmode) .components-navigation a {
+      color: var(--neutral-300, #cbd5e0);
+    }
+
+    .active {
+      translate: 0.5rem 0;
+      scale: 1.05;
+      font-weight: 700;
+      color: var(--primary-600, #0066cc);
+    }
+
+    :global(.darkmode) .active {
+      color: var(--primary-400, #3b82f6);
+    }
+
+    .space-content > * + * {
+      margin-top: 1.5rem;
+    }
+
+    :global(.heading) {
+      scroll-margin-block-start: 2rem;
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+
+    /* Cards Grid */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Card Icon */
+    .card-icon {
+      color: var(--primary-500, #0066cc);
+      margin-bottom: 1rem;
+    }
+
+    :global(.darkmode) .card-icon {
+      color: var(--primary-400, #3b82f6);
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: var(--neutral-100, #f0f4f8);
+      border-left: 4px solid var(--primary-500, #0066cc);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    :global(.darkmode) .formula-box {
+      background: var(--neutral-800, #2d3748);
+      border-left-color: var(--primary-400, #3b82f6);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .formula-box h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: var(--primary-600, #0052a3);
+      font-size: 1.25rem;
+    }
+
+    :global(.darkmode) .formula-box h3 {
+      color: var(--primary-300, #60a5fa);
+    }
+
+    .formula-box code {
+      display: block;
+      background: var(--neutral-50, #ffffff);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.25rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--primary-600, #0066cc);
+      font-family: 'Courier New', monospace;
+    }
+
+    :global(.darkmode) .formula-box code {
+      background: var(--neutral-900, #1a202c);
+      color: var(--primary-300, #60a5fa);
+    }
+
+    .formula-box p,
+    .formula-box ul {
+      color: var(--neutral-700, #4a5568);
+    }
+
+    :global(.darkmode) .formula-box p,
+    :global(.darkmode) .formula-box ul {
+      color: var(--neutral-300, #cbd5e0);
+    }
+
+    /* Graphics Container */
+    .graphics-container {
+      display: grid;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .graphics-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
+
+    .graphic-card {
+      background: var(--neutral-50, #f7fafc);
+      border: 2px solid var(--primary-200, #bfdbfe);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    :global(.darkmode) .graphic-card {
+      background: var(--neutral-800, #2d3748);
+      border-color: var(--primary-700, #1e40af);
+    }
+
+    .graphic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 102, 204, 0.2);
+    }
+
+    .graphic-card h3 {
+      color: var(--primary-600, #0052a3);
+      margin-bottom: 1rem;
+    }
+
+    :global(.darkmode) .graphic-card h3 {
+      color: var(--primary-300, #60a5fa);
+    }
+
+    .graphic-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .graphic-content svg {
+      color: var(--primary-500, #0066cc);
+    }
+
+    :global(.darkmode) .graphic-content svg {
+      color: var(--primary-400, #3b82f6);
+    }
+
+    .graphic-content ul {
+      width: 100%;
+      color: var(--neutral-700, #4a5568);
+    }
+
+    :global(.darkmode) .graphic-content ul {
+      color: var(--neutral-300, #cbd5e0);
+    }
+
+    /* Example Box */
+    .example-box {
+      background: #fff9e6;
+      border: 2px solid #ffc107;
+      border-left: 6px solid #ffc107;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+    }
+
+    :global(.darkmode) .example-box {
+      background: #3d3420;
+      border-color: #d97706;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }
+
+    .example-box h3 {
+      color: #d97706;
+      margin-bottom: 1rem;
+    }
+
+    :global(.darkmode) .example-box h3 {
+      color: #fbbf24;
+    }
+
+    .example-box p,
+    .example-box ul {
+      color: var(--neutral-800, #2d3748);
+    }
+
+    :global(.darkmode) .example-box p,
+    :global(.darkmode) .example-box ul {
+      color: var(--neutral-200, #e2e8f0);
+    }
+
+    .solution {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px dashed #ffc107;
+    }
+
+    :global(.darkmode) .solution {
+      border-top-color: #d97706;
+    }
+
+    .example-box code {
+      display: block;
+      background: var(--neutral-50, #ffffff);
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 0.25rem;
+      font-weight: bold;
+      color: #d97706;
+      font-family: 'Courier New', monospace;
+    }
+
+    :global(.darkmode) .example-box code {
+      background: #2d2415;
+      color: #fbbf24;
+    }
+
+    .result {
+      background: #fff;
+      border-left: 4px solid #10b981;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      color: #059669;
+    }
+
+    :global(.darkmode) .result {
+      background: #1a4d2e;
+      color: #6ee7b7;
+    }
+
+    /* Info Box */
+    .info-box {
+      display: flex;
+      gap: 1.5rem;
+      background: var(--neutral-50, #f0f9ff);
+      border: 2px solid var(--primary-300, #93c5fd);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      align-items: flex-start;
+    }
+
+    :global(.darkmode) .info-box {
+      background: #1e3a5f;
+      border-color: var(--primary-600, #1e40af);
+    }
+
+    .info-box svg {
+      color: var(--primary-600, #0066cc);
+      flex-shrink: 0;
+    }
+
+    :global(.darkmode) .info-box svg {
+      color: var(--primary-400, #3b82f6);
+    }
+
+    .info-box h3 {
+      color: var(--primary-700, #0052a3);
+      margin-bottom: 1rem;
+    }
+
+    :global(.darkmode) .info-box h3 {
+      color: var(--primary-300, #60a5fa);
+    }
+
+    .info-box p,
+    .info-box ul {
+      color: var(--neutral-700, #4a5568);
+    }
+
+    :global(.darkmode) .info-box p,
+    :global(.darkmode) .info-box ul {
+      color: var(--neutral-200, #e2e8f0);
+    }
+
+    /* Video Section */
+    .video-section {
+      display: grid;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .video-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .video-card {
+      background: var(--neutral-50, #f7fafc);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    :global(.darkmode) .video-card {
+      background: var(--neutral-800, #2d3748);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-card h3 {
+      color: var(--primary-600, #0052a3);
+      margin-bottom: 0.75rem;
+    }
+
+    :global(.darkmode) .video-card h3 {
+      color: var(--primary-300, #60a5fa);
+    }
+
+    .video-card p {
+      color: var(--neutral-600, #718096);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    :global(.darkmode) .video-card p {
+      color: var(--neutral-400, #9ca3af);
+    }
+
+    /* Exercises Container */
+    .exercises-container {
+      display: grid;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .exercise-card {
+      display: flex;
+      gap: 1rem;
+      background: var(--neutral-50, #ffffff);
+      border: 2px solid var(--neutral-200, #e2e8f0);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      transition: all 0.3s ease;
+      align-items: flex-start;
+    }
+
+    :global(.darkmode) .exercise-card {
+      background: var(--neutral-800, #2d3748);
+      border-color: var(--neutral-600, #4a5568);
+    }
+
+    .exercise-card:hover {
+      border-color: var(--primary-400, #3b82f6);
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+      transform: translateX(4px);
+    }
+
+    .exercise-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.5rem;
+      height: 2.5rem;
+      background: var(--primary-500, #0066cc);
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    :global(.darkmode) .exercise-number {
+      background: var(--primary-600, #1e40af);
+    }
+
+    .exercise-card p {
+      color: var(--neutral-700, #4a5568);
+      line-height: 1.6;
+    }
+
+    :global(.darkmode) .exercise-card p {
+      color: var(--neutral-300, #cbd5e0);
+    }
+
+    /* Conclusion Box */
+    .conclusion-box {
+      display: flex;
+      gap: 1.5rem;
+      background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+      border: 2px solid var(--primary-300, #93c5fd);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin: 3rem 0;
+      align-items: flex-start;
+    }
+
+    :global(.darkmode) .conclusion-box {
+      background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%);
+      border-color: var(--primary-600, #1e40af);
+    }
+
+    .conclusion-box svg {
+      color: var(--primary-600, #0066cc);
+      flex-shrink: 0;
+    }
+
+    :global(.darkmode) .conclusion-box svg {
+      color: var(--primary-300, #60a5fa);
+    }
+
+    .conclusion-box h2 {
+      color: var(--primary-700, #0052a3);
+      margin-bottom: 1rem;
+    }
+
+    :global(.darkmode) .conclusion-box h2 {
+      color: var(--primary-200, #93c5fd);
+    }
+
+    .conclusion-box p {
+      color: var(--neutral-700, #4a5568);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    :global(.darkmode) .conclusion-box p {
+      color: var(--neutral-200, #e2e8f0);
+    }
+
+    /* Publication Info */
+    .publication-info {
+      background: var(--neutral-100, #f7fafc);
+      border-top: 3px solid var(--primary-500, #0066cc);
+      border-radius: 0.5rem;
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+
+    :global(.darkmode) .publication-info {
+      background: var(--neutral-800, #2d3748);
+      border-top-color: var(--primary-400, #3b82f6);
+    }
+
+    .publication-info h2 {
+      color: var(--primary-600, #0052a3);
+      margin-bottom: 1rem;
+    }
+
+    :global(.darkmode) .publication-info h2 {
+      color: var(--primary-300, #60a5fa);
+    }
+
+    .publication-info p {
+      color: var(--neutral-700, #4a5568);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    :global(.darkmode) .publication-info p {
+      color: var(--neutral-300, #cbd5e0);
+    }
+
+    /* Lists */
+    ul:not([class]) li {
+      margin-block-end: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* Utility Classes */
+    .list-inside {
+      list-style-position: inside;
+    }
+
+    .list-disc {
+      list-style-type: disc;
+    }
+
+    .list-none {
+      list-style: none;
+      padding: 0;
+    }
+
+    /* Responsive Text */
+    @media (max-width: 640px) {
+      .formula-box code {
+        font-size: 1rem;
+      }
+
+      .example-box {
+        padding: 1.25rem;
+      }
+
+      .info-box {
+        flex-direction: column;
+      }
+
+      .conclusion-box {
+        flex-direction: column;
+      }
+    }
+  </style>
+</DefaultLayout>

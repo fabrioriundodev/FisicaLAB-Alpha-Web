@@ -1,0 +1,112 @@
+/* ============================
+   Tema claro (por defecto)
+   ============================ */
+:root {
+  --bg: #ffffff;
+  --surface: #f9fafb;
+  --text: #1f2937;
+  --muted-text: #4b5563;
+  --border: rgba(0,0,0,0.08);
+  --shadow: 0 6px 16px rgba(0,0,0,0.08);
+
+  --accent-blue-1: linear-gradient(90deg,#0ea5e9,#06b6d4);
+  --emerald: #059669;
+  --violet: #7c3aed;
+  --cyan: #0891b2;
+  --purple: #8b5cf6;
+  --pink: #db2777;
+}
+
+/* ============================
+   Tema oscuro automático
+   ============================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --surface: #141c2e;
+    --text: #e2e8f0;
+    --muted-text: #94a3b8;
+    --border: rgba(255,255,255,0.08);
+    --shadow: 0 6px 20px rgba(0,0,0,0.7);
+
+    --accent-blue-1: linear-gradient(90deg,#155e75,#06b6d4);
+    --emerald: #34d399;
+    --violet: #a78bfa;
+    --cyan: #67e8f9;
+    --purple: #c4b5fd;
+    --pink: #f472b6;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  .hero-section {
+    background: linear-gradient(90deg,#0f172a,#155e75);
+    color: var(--text);
+  }
+
+  .intro-card,
+  .principle-card,
+  .force-card {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .principle-card h3,
+  .principle-card h4,
+  .force-card h4 {
+    color: var(--text);
+  }
+
+  .principle-card p,
+  .force-card p,
+  .intro-card p {
+    color: var(--muted-text);
+  }
+
+  strong {
+    color: var(--text);
+  }
+
+  .bg-white {
+    background: #1e293b !important;
+    color: var(--text);
+  }
+
+  /* Íconos con fondo */
+  .bg-emerald-600,
+  .bg-violet-600,
+  .bg-cyan-500,
+  .bg-purple-500,
+  .bg-pink-500 {
+    filter: brightness(1.2);
+  }
+
+  /* Colores de texto */
+  .text-gray-800,
+  .text-gray-700,
+  .text-gray-600 {
+    color: var(--muted-text) !important;
+  }
+
+  .text-emerald-700 { color: var(--emerald) !important; }
+  .text-violet-700 { color: var(--violet) !important; }
+  .text-cyan-900 { color: var(--cyan) !important; }
+  .text-violet-900 { color: var(--violet) !important; }
+  .text-pink-700 { color: var(--pink) !important; }
+
+  /* Bordes superiores de tarjetas */
+  .border-cyan-500 { border-top-color: var(--cyan) !important; }
+  .border-purple-500 { border-top-color: var(--purple) !important; }
+  .border-pink-500 { border-top-color: var(--pink) !important; }
+
+  /* Fondo del notification */
+  .Notification, .notification, [data-notification] {
+    background: rgba(59,130,246,0.08);
+    color: var(--text);
+  }
+}

@@ -1,0 +1,389 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import { Heading } from 'accessible-astro-components'
+---
+
+<DefaultLayout title="Movimiento Rectilíneo Uniforme (MRU)">
+  <PageHeader
+    title="Movimiento Rectilíneo Uniforme (MRU)"
+    subtitle="Estudio del movimiento en línea recta con velocidad constante. Comprende los conceptos fundamentales de desplazamiento, velocidad y tiempo."
+    bgType="bordered"
+  />
+  <section class="narrow container my-16">
+    <div class="space-content">
+      <Heading level="h2">Introducción</Heading>
+      <p>
+        El <strong>Movimiento Rectilíneo Uniforme (MRU)</strong> es el tipo de movimiento más simple en cinemática. 
+        Se caracteriza por una trayectoria en línea recta y una velocidad constante, es decir, el objeto recorre 
+        distancias iguales en intervalos de tiempo iguales. Este concepto fundamental de la física permite entender 
+        movimientos cotidianos como un automóvil en una autopista recta manteniendo velocidad constante.
+      </p>
+      <p>
+        En el MRU no existe aceleración, por lo que la velocidad del móvil permanece invariable durante todo su 
+        desplazamiento. Este tipo de movimiento es ideal para introducir conceptos básicos como posición, 
+        desplazamiento, velocidad y tiempo.
+      </p>
+
+      <Heading level="h2">Características del MRU</Heading>
+      <p>
+        El Movimiento Rectilíneo Uniforme presenta las siguientes características distintivas:
+      </p>
+      <ul class="list-inside list-disc">
+        <li>La trayectoria es una línea recta</li>
+        <li>La velocidad es constante (no cambia con el tiempo)</li>
+        <li>La aceleración es igual a cero (a = 0)</li>
+        <li>El móvil recorre distancias iguales en tiempos iguales</li>
+        <li>La dirección del movimiento no cambia</li>
+        <li>No hay fuerzas netas actuando sobre el objeto (o están equilibradas)</li>
+      </ul>
+
+      <Heading level="h2">Fórmulas Fundamentales</Heading>
+      <p>
+        El MRU se describe mediante ecuaciones matemáticas simples que relacionan posición, velocidad y tiempo:
+      </p>
+      
+      <div class="formula-box">
+        <h3>Ecuación de Velocidad</h3>
+        <code>v = d / t</code>
+        <p>Donde:</p>
+        <ul class="list-inside list-disc">
+          <li><strong>v</strong> = velocidad (m/s)</li>
+          <li><strong>d</strong> = distancia o desplazamiento (m)</li>
+          <li><strong>t</strong> = tiempo (s)</li>
+        </ul>
+      </div>
+
+      <div class="formula-box">
+        <h3>Ecuación de Posición</h3>
+        <code>x = x₀ + v × t</code>
+        <p>Donde:</p>
+        <ul class="list-inside list-disc">
+          <li><strong>x</strong> = posición final (m)</li>
+          <li><strong>x₀</strong> = posición inicial (m)</li>
+          <li><strong>v</strong> = velocidad constante (m/s)</li>
+          <li><strong>t</strong> = tiempo transcurrido (s)</li>
+        </ul>
+      </div>
+
+      <div class="formula-box">
+        <h3>Ecuación de Distancia</h3>
+        <code>d = v × t</code>
+        <p>Esta es la forma más simple, útil cuando la posición inicial es cero o no es relevante.</p>
+      </div>
+
+      <Heading level="h2">Gráficas del MRU</Heading>
+      <p>
+        Las gráficas son herramientas visuales fundamentales para analizar el MRU:
+      </p>
+
+      <h3>Gráfica Posición vs Tiempo (x vs t)</h3>
+      <ul class="list-inside list-disc">
+        <li>Representa una línea recta</li>
+        <li>La pendiente de la recta es igual a la velocidad</li>
+        <li>Si la pendiente es positiva, el móvil se aleja del origen</li>
+        <li>Si la pendiente es negativa, el móvil se acerca al origen</li>
+      </ul>
+
+      <h3>Gráfica Velocidad vs Tiempo (v vs t)</h3>
+      <ul class="list-inside list-disc">
+        <li>Representa una línea horizontal (paralela al eje del tiempo)</li>
+        <li>Indica que la velocidad es constante</li>
+        <li>El área bajo la curva representa el desplazamiento</li>
+      </ul>
+
+      <Heading level="h2">Ejemplos Prácticos</Heading>
+      
+      <h3>Ejemplo 1: Cálculo de Velocidad</h3>
+      <p>
+        Un automóvil recorre 150 km en 2 horas manteniendo velocidad constante. ¿Cuál es su velocidad?
+      </p>
+      <div class="example-box">
+        <p><strong>Datos:</strong></p>
+        <ul class="list-inside list-disc">
+          <li>d = 150 km = 150,000 m</li>
+          <li>t = 2 h = 7,200 s</li>
+        </ul>
+        <p><strong>Solución:</strong></p>
+        <code>v = d / t = 150,000 m / 7,200 s = 20.83 m/s</code>
+        <p>O en km/h: v = 150 km / 2 h = 75 km/h</p>
+      </div>
+
+      <h3>Ejemplo 2: Cálculo de Distancia</h3>
+      <p>
+        Un ciclista viaja a una velocidad constante de 10 m/s durante 5 minutos. ¿Qué distancia recorre?
+      </p>
+      <div class="example-box">
+        <p><strong>Datos:</strong></p>
+        <ul class="list-inside list-disc">
+          <li>v = 10 m/s</li>
+          <li>t = 5 min = 300 s</li>
+        </ul>
+        <p><strong>Solución:</strong></p>
+        <code>d = v × t = 10 m/s × 300 s = 3,000 m = 3 km</code>
+      </div>
+
+      <h3>Ejemplo 3: Cálculo de Tiempo</h3>
+      <p>
+        ¿Cuánto tiempo tarda un atleta en recorrer 400 metros si corre a velocidad constante de 8 m/s?
+      </p>
+      <div class="example-box">
+        <p><strong>Datos:</strong></p>
+        <ul class="list-inside list-disc">
+          <li>d = 400 m</li>
+          <li>v = 8 m/s</li>
+        </ul>
+        <p><strong>Solución:</strong></p>
+        <code>t = d / v = 400 m / 8 m/s = 50 s</code>
+      </div>
+
+      <Heading level="h2">Aplicaciones en la Vida Real</Heading>
+      <p>
+        El MRU tiene múltiples aplicaciones prácticas en situaciones cotidianas:
+      </p>
+      <ul class="list-inside list-disc">
+        <li><strong>Transporte:</strong> Vehículos en autopistas con control crucero</li>
+        <li><strong>Cintas transportadoras:</strong> En fábricas y aeropuertos</li>
+        <li><strong>Escaleras mecánicas:</strong> Movimiento constante de personas</li>
+        <li><strong>Trenes:</strong> En tramos rectos sin aceleración</li>
+        <li><strong>Astronomía:</strong> Satélites en órbita (aproximación)</li>
+        <li><strong>Deportes:</strong> Análisis de rendimiento en carreras</li>
+      </ul>
+
+      <Heading level="h2">Diferencias con MRUV</Heading>
+      <p>
+        Es importante distinguir el MRU del Movimiento Rectilíneo Uniformemente Variado (MRUV):
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>MRU</th>
+            <th>MRUV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Velocidad constante</td>
+            <td>Velocidad variable</td>
+          </tr>
+          <tr>
+            <td>Aceleración = 0</td>
+            <td>Aceleración constante ≠ 0</td>
+          </tr>
+          <tr>
+            <td>Gráfica x-t: línea recta</td>
+            <td>Gráfica x-t: parábola</td>
+          </tr>
+          <tr>
+            <td>Gráfica v-t: línea horizontal</td>
+            <td>Gráfica v-t: línea inclinada</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <Heading level="h2">Ejercicios Propuestos</Heading>
+      <ol class="list-inside list-decimal">
+        <li>Un tren viaja a 90 km/h. ¿Cuántos metros recorre en 20 segundos?</li>
+        <li>¿A qué velocidad debe viajar un móvil para recorrer 500 m en 25 segundos?</li>
+        <li>Si un objeto se mueve a 15 m/s, ¿cuánto tiempo necesita para recorrer 1.8 km?</li>
+        <li>Dos automóviles parten simultáneamente de puntos distantes 200 km, uno hacia el otro. Si van a 60 km/h y 40 km/h respectivamente, ¿cuándo se encuentran?</li>
+      </ol>
+
+      <Heading level="h2">Consejos para Resolver Problemas</Heading>
+      <ul class="list-inside list-disc">
+        <li><strong>Identifica los datos:</strong> Anota claramente qué te dan y qué te piden</li>
+        <li><strong>Convierte unidades:</strong> Asegúrate de trabajar en el mismo sistema (SI preferiblemente)</li>
+        <li><strong>Elige la fórmula correcta:</strong> Usa v = d/t, d = v×t, o t = d/v según corresponda</li>
+        <li><strong>Verifica el resultado:</strong> Comprueba que las unidades sean correctas</li>
+        <li><strong>Interpreta:</strong> Explica qué significa físicamente tu resultado</li>
+      </ul>
+
+      <Heading level="h2">Recursos Adicionales</Heading>
+      <p>
+        Para profundizar en el estudio del Movimiento Rectilíneo Uniforme:
+      </p>
+      <ul class="list-inside list-disc">
+        <li>Practica con simuladores interactivos de física</li>
+        <li>Realiza experimentos caseros con carritos de juguete</li>
+        <li>Analiza videos de movimientos reales con software de tracking</li>
+        <li>Resuelve problemas de diferentes niveles de dificultad</li>
+        <li>Consulta libros de física de nivel universitario</li>
+      </ul>
+
+      <Heading level="h2">Conclusión</Heading>
+      <p>
+        El Movimiento Rectilíneo Uniforme es un concepto fundamental en la física que sirve como base para 
+        comprender movimientos más complejos. Su simplicidad matemática lo convierte en el punto de partida 
+        ideal para el estudio de la cinemática. Dominar el MRU es esencial para cualquier estudiante de 
+        ingeniería o ciencias, ya que sus principios se aplican en numerosos campos de la tecnología y la 
+        ciencia moderna.
+      </p>
+
+      <Heading level="h2">Información de Publicación</Heading>
+      <p>
+        Este material educativo fue preparado para estudiantes de Física I de la <strong>Universidad Privada 
+        San Juan Bautista</strong>. Última actualización: <strong>Octubre 2025</strong>.
+      </p>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style>
+  .space-content > * + * {
+    margin-top: 1.5rem;
+  }
+
+  /* Formula Box - Adaptado para modo oscuro */
+  .formula-box {
+    background: var(--neutral-100, #f0f4f8);
+    border-left: 4px solid var(--primary-500, #0066cc);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+  }
+
+  :global(.darkmode) .formula-box {
+    background: var(--neutral-800, #2d3748);
+    border-left-color: var(--primary-400, #3b82f6);
+  }
+
+  .formula-box h3 {
+    margin-top: 0;
+    color: var(--primary-600, #0052a3);
+    font-size: 1.25rem;
+  }
+
+  :global(.darkmode) .formula-box h3 {
+    color: var(--primary-300, #60a5fa);
+  }
+
+  .formula-box code {
+    display: block;
+    background: var(--neutral-50, #ffffff);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--primary-600, #0066cc);
+  }
+
+  :global(.darkmode) .formula-box code {
+    background: var(--neutral-900, #1a202c);
+    color: var(--primary-300, #60a5fa);
+  }
+
+  .formula-box p {
+    color: var(--neutral-700, #4a5568);
+  }
+
+  :global(.darkmode) .formula-box p {
+    color: var(--neutral-300, #cbd5e0);
+  }
+
+  .formula-box ul {
+    color: var(--neutral-700, #4a5568);
+  }
+
+  :global(.darkmode) .formula-box ul {
+    color: var(--neutral-300, #cbd5e0);
+  }
+
+  /* Example Box - Adaptado para modo oscuro */
+  .example-box {
+    background: #fff9e6;
+    border: 2px solid #ffc107;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+  }
+
+  :global(.darkmode) .example-box {
+    background: #3d3420;
+    border-color: #d97706;
+  }
+
+  .example-box p {
+    color: var(--neutral-800, #2d3748);
+  }
+
+  :global(.darkmode) .example-box p {
+    color: var(--neutral-200, #e2e8f0);
+  }
+
+  .example-box ul {
+    color: var(--neutral-800, #2d3748);
+  }
+
+  :global(.darkmode) .example-box ul {
+    color: var(--neutral-200, #e2e8f0);
+  }
+
+  .example-box code {
+    display: block;
+    background: var(--neutral-50, #ffffff);
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    color: #d97706;
+  }
+
+  :global(.darkmode) .example-box code {
+    background: #2d2415;
+    color: #fbbf24;
+  }
+
+  /* Table - Adaptado para modo oscuro */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+
+  th, td {
+    border: 1px solid var(--neutral-300, #cbd5e0);
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  :global(.darkmode) th,
+  :global(.darkmode) td {
+    border-color: var(--neutral-600, #4a5568);
+  }
+
+  th {
+    background: var(--primary-600, #0066cc);
+    color: white;
+    font-weight: bold;
+  }
+
+  :global(.darkmode) th {
+    background: var(--primary-700, #0052a3);
+  }
+
+  tr:nth-child(even) {
+    background: var(--neutral-50, #f7fafc);
+  }
+
+  :global(.darkmode) tr:nth-child(even) {
+    background: var(--neutral-800, #2d3748);
+  }
+
+  :global(.darkmode) td {
+    color: var(--neutral-200, #e2e8f0);
+  }
+
+  ol, ul {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin: 0.5rem 0;
+  }
+
+  /* Headings en dark mode */
+  :global(.darkmode) h3 {
+    color: var(--neutral-100, #f7fafc);
+  }
+</style>

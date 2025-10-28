@@ -1,0 +1,720 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import Hero from '@components/Hero.astro'
+import Feature from '@components/Feature.astro'
+import Counter from '@components/Counter.astro'
+import ContentMedia from '@components/ContentMedia.astro'
+import FeaturedProjects from '@components/FeaturedProjects.astro'
+import FeaturedPosts from '@components/FeaturedPosts.astro'
+import { Accordion, AccordionItem, Avatar, AvatarGroup, Heading, Link } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+---
+
+<DefaultLayout title="FisicaLAB Alpha">
+  <Hero />
+<section class="my-20 dark">
+  <div class="container">
+    <!-- Hero section para FisicaLAB -->
+    <div class="mb-20 text-center">
+      <div class="mb-6 inline-block rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 text-sm font-semibold text-white">
+        Versión 2.0 Disponible Ahora
+      </div>
+      <Heading level="h2" class="mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        FisicaLAB Alpha
+      </Heading>
+      <p class="mx-auto mb-8 max-w-3xl text-lg text-black dark:text-white">
+        Simulador educativo interactivo que transforma el aprendizaje de la cinemática. 
+        Experimenta con física en tiempo real desde tu computadora.
+      </p>
+      
+      <!-- Botón de descarga destacado -->
+      <div class="mb-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <a 
+          target="_blank"
+          href="https://github.com/XNasaX/FisicaLAB" 
+          class="decoration-none inline-flex items-center gap-2 rounded-lg border-2 border-gray-300 px-8 py-4 text-lg font-semibold text-gray-700 transition-all hover:border-blue-600 hover:text-blue-600 dark:border-gray-600 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:text-blue-400"
+        >
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          Ver en GitHub
+        </a>
+      </div>
+
+     <!-- Stats rápidos con contador animado -->
+<div class="flex flex-wrap justify-center gap-8 text-center">
+  <div class="flex flex-col">
+    <span class="text-4xl font-bold text-blue-600">3</span>
+    <span class="text-sm text-gray-600 dark:text-gray-400">Simulaciones</span>
+  </div>
+
+  <div class="flex flex-col">
+    <span class="text-4xl font-bold text-purple-600">10+</span>
+    <span class="text-sm text-gray-600 dark:text-gray-400">Parámetros</span>
+  </div>
+
+  <div class="flex flex-col">
+    <span id="descargas" class="text-4xl font-bold text-indigo-600">0</span>
+    <span class="text-sm text-gray-600 dark:text-gray-400">Descargas</span>
+  </div>
+
+  <div class="flex flex-col">
+    <span class="text-4xl font-bold text-green-600">100%</span>
+    <span class="text-sm text-gray-600 dark:text-gray-400">Gratis</span>
+  </div>
+</div>
+
+<script is:inline>
+  // 🎯 Configura el número final aquí:
+  const objetivo = 542; // Cambia este valor al número de descargas real
+  const velocidad = 25; // Menor número = animación más rápida
+
+  const contador = document.getElementById("descargas");
+  let actual = 0;
+
+  const actualizarContador = () => {
+    const incremento = Math.ceil(objetivo / 100);
+    if (actual < objetivo) {
+      actual += incremento;
+      contador.textContent = actual.toLocaleString(); // formato con comas si es grande
+      setTimeout(actualizarContador, velocidad);
+    } else {
+      contador.textContent = objetivo.toLocaleString();
+    }
+  };
+
+  // Espera a que el elemento sea visible antes de iniciar el conteo
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      actualizarContador();
+      observer.disconnect();
+    }
+  });
+  observer.observe(contador);
+</script>
+
+    </div>
+
+    <!-- Novedades v2.0 -->
+    <div class="mb-20 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 p-8 dark:from-blue-900/20 dark:to-purple-900/20 md:p-12">
+      <h3 class="mb-6 text-center text-2xl font-bold text-gray-800 dark:text-white">
+        Novedades en Versión 2.0
+      </h3>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="flex items-start gap-3">
+          <div class="rounded-lg bg-blue-600 p-2">
+            <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white">Controles de Teclado</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Controla simulaciones con atajos intuitivos</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <div class="rounded-lg bg-purple-600 p-2">
+            <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white">Sistema de Energía</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Visualiza conservación de energía en tiempo real</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <div class="rounded-lg bg-indigo-600 p-2">
+            <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white">Pantalla Completa</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Experiencia inmersiva maximizada</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <div class="rounded-lg bg-blue-600 p-2">
+            <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white">Gravedad Variable</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Simula física en Luna, Marte o Júpiter</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <div class="rounded-lg bg-purple-600 p-2">
+            <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white">Velocidad Ajustable</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Cámara lenta o rápida a tu elección</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-3">
+          <div class="rounded-lg bg-indigo-600 p-2">
+            <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 dark:text-white">Datos Extendidos</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Alcance, altura máxima y más</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Características principales -->
+    <Heading level="h2" class="mb-12 text-center">Simulaciones Disponibles</Heading>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      
+      <Feature icon="lucide:move-horizontal" title="Movimiento Rectilíneo Uniforme">
+        Configura velocidad, posición inicial y distancia objetivo. Incluye modo infinito con bucle continuo.
+      </Feature>
+      
+      <Feature icon="lucide:arrow-down" title="Caída Libre">
+        Experimenta con altura inicial, velocidad y masa. Sistema de energía potencial y cinética en tiempo real.
+      </Feature>
+      
+      <Feature icon="lucide:gitlab" title="Tiro Parabólico">
+        Ajusta velocidad y ángulo con precisión. Calcula alcance máximo, altura y tiempo de vuelo automáticamente.
+      </Feature>
+      
+      <Feature icon="lucide:keyboard" title="Controles Intuitivos">
+        Usa teclado para control total: ESPACIO pausa/inicia, R reinicia, flechas ajustan parámetros en vivo.
+      </Feature>
+      
+      <Feature icon="lucide:gauge" title="Parámetros Personalizables">
+        Modifica gravedad (0.1-20 m/s²) y velocidad de simulación. Experimenta física en diferentes planetas.
+      </Feature>
+      
+      <Feature icon="lucide:bar-chart-3" title="Visualización en Tiempo Real">
+        Gráficos dinámicos, vectores, trayectorias y métricas físicas actualizadas instantáneamente.
+      </Feature>
+      
+      <Feature icon="lucide:maximize" title="Interfaz Moderna">
+        Modo pantalla completa, ventana redimensionable y controles UI mejorados con sliders y campos de texto.
+      </Feature>
+      
+      <Feature icon="lucide:code-2" title="Código Abierto">
+        Proyecto open source en GitHub. Aprende, modifica y contribuye al desarrollo del simulador.
+      </Feature>
+      
+      <Feature icon="lucide:graduation-cap" title="Ideal para Educación">
+        Perfecto para estudiantes, docentes y autodidactas. Aprende física de forma visual e interactiva.
+      </Feature>
+      
+    </div>
+
+    <!-- Requisitos técnicos -->
+    <div class="mt-20 rounded-2xl border-2 border-gray-200 bg-white p-8 dark:border-gray-700 dark:bg-gray-800">
+      <h3 class="mb-6 text-center text-xl font-bold text-gray-800 dark:text-white">
+        Requisitos del Sistema
+      </h3>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="flex items-center gap-3">
+          <div class="rounded-full bg-green-100 p-2 dark:bg-green-900/30">
+            <svg class="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <span class="text-gray-700 dark:text-gray-300">JDK 8 o superior (probado hasta JDK 12)</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="rounded-full bg-green-100 p-2 dark:bg-green-900/30">
+            <svg class="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <span class="text-gray-700 dark:text-gray-300">NetBeans IDE 12 o superior</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="rounded-full bg-green-100 p-2 dark:bg-green-900/30">
+            <svg class="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <span class="text-gray-700 dark:text-gray-300">Windows, macOS o Linux</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="rounded-full bg-green-100 p-2 dark:bg-green-900/30">
+            <svg class="h-5 w-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <span class="text-gray-700 dark:text-gray-300">512 MB RAM (mínimo recomendado)</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+  <FeaturedProjects />
+</div>
+  <FeaturedPosts/>
+
+   <!--EN ESTA PARTE ESTA TODO EL CODIGO DEL MAPA (UBICACIÓN) -->
+<section class="my-20 dark flex flex-col items-center text-center">
+  <div class="container max-w-4xl">
+    <h2 class="text-4xl font-bold mb-6">Nuestra Ubicación</h2>
+    <p class="text-lg mb-8 text-gray-600 dark:text-gray-300">
+      Encuéntranos fácilmente con el siguiente mapa interactivo.
+    </p>
+
+    <div class="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700">
+      <!-- 🗺️ Mapa moderno (no satélite) -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56043.403045638035!2d-75.77854603046876!3d-14.04031656952102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9110fd2d2e4a8053%3A0x979e2667ad3f0901!2sUniversidad%20San%20Juan%20Bautista%20-%20Sede%20Ica!5e0!3m2!1ses!2spe!4v1761322332884!5m2!1ses!2spe"
+        width="100%"
+        height="100%"
+        style="border:0; filter: grayscale(20%) contrast(110%) brightness(105%);"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <!-- Sombras decorativas -->
+      <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/10 to-transparent"></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="my-20 dark">
+  <div class="space-content container">
+    <Heading level="h2">Nuestro equipo</Heading>
+    <p class="text-2xl">
+      Somos un grupo de estudiantes de Ingeniería de Sistemas de la Universidad Privada San Juan Bautista (UPSJB) apasionados por la Física y las ciencias aplicadas. Este espacio ha sido creado para aprender, compartir conocimientos y fortalecer nuestra comprensión.
+    </p>
+    <AvatarGroup display="grid" gridItemsSize="300px" gridGap="2rem" class="avatar-group-physics">
+      <Avatar initials="FO" title="Fabrizio Oriundo" subtitle="Estudiante" />
+      <Avatar initials="SM" title="Stefany Muñoz" subtitle="Estudiante" />
+      <Avatar initials="DC" title="Diego Caritas" subtitle="Estudiante" />
+      <Avatar initials="RA" title="Ricardo Alvarez" subtitle="Estudiante" />
+      <Avatar initials="EH" title="Elias Huamaní" subtitle="Estudiante" />
+      <Avatar initials="AC" title="Alexander Choccelahua" subtitle="Estudiante" />
+    </AvatarGroup>
+  </div>
+</section>
+
+<!-- Modal de confirmación -->
+<div id="resetModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full transform transition-all">
+    <div class="p-6">
+      <div class="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 dark:bg-red-900/30 rounded-full mb-4">
+        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-center text-gray-900 dark:text-white mb-2">
+        ¿Confirmar reseteo?
+      </h3>
+      <p class="text-center text-gray-600 dark:text-gray-300 mb-6">
+        Esta acción eliminará todos los datos guardados. ¿Estás seguro de que deseas continuar?
+      </p>
+      <div class="flex gap-3">
+        <button id="cancelReset" class="flex-1 px-4 py-2.5 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-lg font-medium transition-colors">
+          Cancelar
+        </button>
+        <button id="confirmReset" class="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+          </svg>
+          Resetear
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showResetModal() {
+    const modal = document.getElementById('resetModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+    }
+  }
+
+  function hideResetModal() {
+    const modal = document.getElementById('resetModal');
+    if (modal) {
+      modal.classList.add('hidden');
+    }
+  }
+
+  function performReset() {
+    // Aquí va tu lógica de reseteo
+    console.log('Reseteando datos...');
+    hideResetModal();
+  }
+
+  document.getElementById('cancelReset')?.addEventListener('click', hideResetModal);
+  document.getElementById('confirmReset')?.addEventListener('click', performReset);
+  
+  // Cerrar modal al hacer clic fuera
+  document.getElementById('resetModal')?.addEventListener('click', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target && target.id === 'resetModal') {
+      hideResetModal();
+    }
+  });
+
+  // Para llamar el modal desde un botón de reset, usa:
+  // <button onclick="showResetModal()">Resetear</button>
+</script>
+    
+<section class="my-20 dark">
+  <div class="container">
+    <Heading level="h2" class="mb-16 text-center text-4xl font-bold">Cifras</Heading>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 place-items-stretch">
+      <!-- Temas -->
+      <div class="counter-card">
+        <Counter count="7" title="Temas" sub="De Física" />
+      </div>
+
+      <!-- Recursos -->
+      <div class="counter-card">
+        <Counter count="20+" title="Recursos" sub="Interactivos" />
+      </div>
+
+      <!-- Estudiantes -->
+      <div class="counter-card">
+        <Counter count="6" title="Estudiantes" sub="Participantes" />
+      </div>
+      
+      <!-- Contador de Visitas -->
+     <!-- Contador de Visitas -->
+<div class="visit-counter-card counter-card relative">
+  <div class="visit-counter-icon text-3xl text-cyan-600">
+    <iconify-icon icon="mdi:eye-outline"></iconify-icon>
+  </div>
+  <p class="visit-counter-number text-3xl font-bold" id="animated-visit-counter">0</p>
+  <h3 class="visit-counter-title text-lg font-semibold">Visitas</h3>
+  <p class="visit-counter-subtitle text-sm text-gray-500">Totales al sitio</p>
+
+  <button
+  id="reset-counter"
+  class="reset-btn mt-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-full px-4 py-2 flex flex-row-reverse items-center gap-2 transition-all duration-300 shadow-md"
+>
+  <iconify-icon icon="mdi:refresh" width="20"></iconify-icon>
+  Reiniciar
+</button>
+
+</div>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+
+<!-- Ventana emergente personalizada -->
+<div id="reset-modal" class="fixed inset-0 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 text-center max-w-sm w-full animate-fadeIn">
+    <iconify-icon icon="mdi:alert-circle-outline" class="text-5xl text-cyan-600 mb-4"></iconify-icon>
+    <h2 class="text-2xl font-bold mb-2">¿Reiniciar contador?</h2>
+    <p class="text-gray-600 dark:text-gray-300 mb-6">Esta acción restablecerá el número total de visitas a <strong>0</strong>.</p>
+    <div class="flex justify-center gap-4">
+      <button id="confirm-reset" class="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg font-medium transition">Sí, reiniciar</button>
+      <button id="cancel-reset" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-5 py-2 rounded-lg font-medium transition">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Botón flotante de WhatsApp -->
+<a 
+  href="https://wa.me/51941180670?text=Hola,%20tengo%20una%20consulta%20sobre%20física" 
+  class="whatsapp-float" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  aria-label="Contactar por WhatsApp"
+  title="Chatea con nosotros"
+>
+  <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+  <span class="whatsapp-pulse"></span>
+</a>
+
+<script>
+  function animateCounter(element: HTMLElement | null, target: number) {
+    if (!element) return;
+    let current = 0;
+    const increment = Math.ceil(target / 30);
+    const duration = 1000;
+    const stepTime = duration / 30;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = current.toString();
+    }, stepTime);
+  }
+
+  function initVisitCounter() {
+    let visitCount = parseInt(localStorage.getItem('pageVisits') || '0');
+    visitCount++;
+    localStorage.setItem('pageVisits', visitCount.toString());
+    const counterElement = document.getElementById('animated-visit-counter');
+    if (counterElement) animateCounter(counterElement, visitCount);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initVisitCounter();
+
+    const modal = document.getElementById('reset-modal');
+    const resetBtn = document.getElementById('reset-counter');
+    const confirmBtn = document.getElementById('confirm-reset');
+    const cancelBtn = document.getElementById('cancel-reset');
+    const counterElement = document.getElementById('animated-visit-counter');
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        modal?.classList.remove('hidden');
+      });
+    }
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        modal?.classList.add('hidden');
+      });
+    }
+
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', () => {
+        localStorage.setItem('pageVisits', '0');
+        if (counterElement) counterElement.textContent = '0';
+        modal?.classList.add('hidden');
+      });
+    }
+  });
+</script>
+
+
+<style>
+  section {
+    scroll-margin-top: 6rem;
+  }
+
+  iframe {
+    filter: brightness(1) contrast(1);
+    transition: filter 0.4s ease;
+  }
+
+  /* Ajuste para tema oscuro */
+  @media (prefers-color-scheme: dark) {
+    iframe {
+      filter: invert(0.9) hue-rotate(180deg) brightness(1.1) contrast(0.9);
+    }
+  }
+
+  /* Variables de color adaptables */
+  :root {
+    --card-bg: #ffffff;
+    --card-text: #1a1a1a;
+    --visit-bg: linear-gradient(135deg, #dbeafe, #93c5fd);
+    --visit-text: #1e3a8a;
+    --whatsapp-bg: #25D366;
+    --whatsapp-hover: #20BA5A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --card-bg: #1e293b;
+      --card-text: #f8fafc;
+      --visit-bg: linear-gradient(135deg, #1e3a8a, #312e81);
+      --visit-text: #e0e7ff;
+      --whatsapp-bg: #128C7E;
+      --whatsapp-hover: #0F7269;
+    }
+  }
+
+  /* Contenedor base */
+  .counter-card,
+  .visit-counter-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 1rem;
+    padding: 2rem;
+    min-height: 230px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .counter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Card de visitas adaptada a tema */
+  .visit-counter-card {
+    position: relative;
+    background: var(--visit-bg);
+    color: var(--visit-text);
+    overflow: hidden;
+  }
+
+  .visit-counter-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .visit-counter-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+
+  .visit-counter-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .visit-counter-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  /* Botón reset */
+  .reset-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .visit-counter-card:hover .reset-btn {
+    opacity: 1;
+  }
+
+  .reset-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(180deg);
+  }
+
+  /* Botón flotante de WhatsApp */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background: var(--whatsapp-bg);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    box-shadow: 
+      0 4px 14px rgba(37, 211, 102, 0.4),
+      0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    background: var(--whatsapp-hover);
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 
+      0 8px 24px rgba(37, 211, 102, 0.5),
+      0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .whatsapp-float:active {
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-float:hover .whatsapp-icon {
+    transform: scale(1.1);
+  }
+
+  /* Pulso animado */
+  .whatsapp-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--whatsapp-bg);
+    opacity: 0.6;
+    animation: pulse 2s ease-out infinite;
+  }
+
+  /* Animaciones */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .whatsapp-float {
+      width: 56px;
+      height: 56px;
+      bottom: 1.5rem;
+      left: 1.5rem;
+    }
+
+    .whatsapp-icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+</style>
+
+</DefaultLayout>
+
+<style>
+  .avatar {
+    border: 1px solid var(--border-color-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-s);
+  }
+</style>
+

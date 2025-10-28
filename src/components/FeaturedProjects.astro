@@ -1,0 +1,90 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  class?: string
+  title?: string
+  id?: string
+}
+
+const { class: className, title = 'Descargas disponibles', id  } = Astro.props
+
+const downloads = [
+  {
+    name: 'Google Drive',
+    link: 'https://drive.google.com/drive/folders/1mZ1Q2Tp8FQ966gNX0xitLes2R67ruoh7?usp=sharing',
+    icon: 'mdi:google-drive',
+    gradient: 'from-green-400 to-emerald-600',
+    bgHover: 'hover:shadow-green-500/50'
+  },
+  {
+    name: 'OneDrive',
+    link: 'https://upsjb-my.sharepoint.com/:f:/g/personal/fabrizio_oriundo_upsjb_edu_pe/EiKUF9O0HRtAn1GOFTAuetcBCGBfp9JwXbwnoIGvKrbptA?e=yUTk1U',
+    icon: 'mdi:microsoft-onedrive',
+    gradient: 'from-blue-400 to-blue-600',
+    bgHover: 'hover:shadow-blue-500/50'
+  },
+  {
+    name: 'MediaFire',
+    link: 'https://www.mediafire.com/file/q6d269b154azl0h/FisicaLAB_Alpha.exe/file',
+    icon: 'mdi:cloud-download',
+    gradient: 'from-sky-400 to-cyan-600',
+    bgHover: 'hover:shadow-cyan-500/50'
+  }
+]
+---
+<section id={id} class:list={[className, 'my-20 px-4']}>
+  <div class="max-w-5xl mx-auto">
+    <!-- Header con estilo moderno -->
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-bold mb-6">
+        {title}
+      </h2>
+      <div class="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+      <p class="mt-4 font-normal mb-6 text-lg">
+        Descarga el aplicativo FisicaLAB Alpha en tu plataforma preferida
+      </p>
+    </div>
+
+
+    <!-- Grid de botones con diseño premium -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {downloads.map((btn) => (
+        <a
+          href={btn.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${btn.gradient} p-[2px] transition-all duration-300 hover:scale-105 hover:shadow-2xl ${btn.bgHover}`}
+        >
+          <div class="relative bg-white dark:bg-gray-900 rounded-[14px] p-6 h-full flex flex-col items-center justify-center gap-4 transition-colors group-hover:bg-opacity-90 dark:group-hover:bg-opacity-90">
+            <!-- Icono con efecto -->
+            <div class={`p-4 rounded-xl bg-gradient-to-br ${btn.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+              <Icon name={btn.icon} class="w-8 h-8 text-white" />
+            </div>
+            
+            <!-- Texto -->
+            <div class="text-center">
+              <p class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                Descargar en
+              </p>
+              <p class="text-xl font-bold text-gray-900 dark:text-white">
+                {btn.name}
+              </p>
+            </div>
+
+            <!-- Indicador de hover -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-50 transition-opacity"></div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Badge decorativo opcional -->
+    <div class="mt-8 flex justify-center">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">
+        <Icon name="mdi:shield-check" class="w-4 h-4 text-green-500" />
+        Descarga segura y rápida
+      </span>
+    </div>
+  </div>
+</section>

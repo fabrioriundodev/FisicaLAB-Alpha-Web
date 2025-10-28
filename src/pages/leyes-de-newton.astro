@@ -1,0 +1,118 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import { Heading, Link } from 'accessible-astro-components'
+import { Icon } from 'astro-icon/components'
+---
+
+<DefaultLayout title="Leyes de Newton">
+  <section class="my-12">
+    <div class="container">
+      <Heading level="h1" class="text-center mb-4">Las Tres Leyes de Newton</Heading>
+      <p class="text-center text-xl mb-12 text-gray-600">
+        Los principios fundamentales que rigen el movimiento en el universo
+      </p>
+    </div>
+  </section>
+
+  <section class="my-12">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Primera Ley -->
+        <div class="card-newton bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-blue-200">
+          <div class="flex justify-center mb-6">
+            <div class="bg-blue-500 p-4 rounded-full">
+              <Icon name="lucide:arrow-right" size="3rem" class="text-white" />
+            </div>
+          </div>
+          <Heading level="h2" class="text-center mb-4 text-blue-800">
+            Primera Ley
+          </Heading>
+          <h3 class="text-center text-lg font-semibold mb-4 text-blue-700">
+            Ley de la Inercia
+          </h3>
+          <p class="text-gray-700 leading-relaxed text-center mb-6">
+            Un objeto en reposo permanecerá en reposo y un objeto en movimiento continuará 
+            en movimiento con velocidad constante, a menos que una fuerza externa actúe sobre él.
+          </p>
+          <div class="bg-white p-4 rounded-lg">
+            <p class="text-sm text-gray-600 italic text-center">
+              💡 Ejemplo: Un libro sobre una mesa permanece quieto hasta que alguien lo mueve.
+            </p>
+          </div>
+        </div>
+
+        <!-- Segunda Ley -->
+        <div class="card-newton bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-purple-200">
+          <div class="flex justify-center mb-6">
+            <div class="bg-purple-500 p-4 rounded-full">
+              <Icon name="lucide:zap" size="3rem" class="text-white" />
+            </div>
+          </div>
+          <Heading level="h2" class="text-center mb-4 text-purple-800">
+            Segunda Ley
+          </Heading>
+          <h3 class="text-center text-lg font-semibold mb-4 text-purple-700">
+            Ley de la Fuerza
+          </h3>
+          <p class="text-gray-700 leading-relaxed text-center mb-6">
+            La aceleración de un objeto es directamente proporcional a la fuerza neta aplicada 
+            e inversamente proporcional a su masa.
+          </p>
+          <div class="bg-white p-4 rounded-lg">
+            <p class="text-2xl font-bold text-center text-purple-600 mb-2">
+              F = m × a
+            </p>
+            <p class="text-sm text-gray-600 italic text-center">
+              💡 Ejemplo: Se necesita más fuerza para mover un auto que una bicicleta.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tercera Ley -->
+        <div class="card-newton bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-green-200">
+          <div class="flex justify-center mb-6">
+            <div class="bg-green-500 p-4 rounded-full">
+              <Icon name="lucide:repeat" size="3rem" class="text-white" />
+            </div>
+          </div>
+          <Heading level="h2" class="text-center mb-4 text-green-800">
+            Tercera Ley
+          </Heading>
+          <h3 class="text-center text-lg font-semibold mb-4 text-green-700">
+            Acción y Reacción
+          </h3>
+          <p class="text-gray-700 leading-relaxed text-center mb-6">
+            Para cada acción existe una reacción igual y opuesta. 
+            Las fuerzas siempre ocurren en pares iguales y contrarios.
+          </p>
+          <div class="bg-white p-4 rounded-lg">
+            <p class="text-sm text-gray-600 italic text-center">
+              💡 Ejemplo: Al remar, empujas el agua hacia atrás y el bote se mueve hacia adelante.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="my-12">
+    <div class="container text-center">
+      <Link href="/" isButton type="primary" animateOnHover animationType="nudge">
+        Explorar más sobre Física
+        <Icon aria-hidden="true" name="lucide:atom" size="1.5rem" />
+      </Link>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style>
+  .card-newton {
+    transition: all 0.3s ease;
+  }
+  
+  .card-newton:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+</style>
