@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/vercel": "^9.0.0",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify/icons-lucide": "^1.2.135",
     "@iconify/react": "^6.0.2",

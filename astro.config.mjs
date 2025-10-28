@@ -5,12 +5,15 @@ import icon from 'astro-icon'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
+import vercel from '@astrojs/vercel';
+
 
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
   site: 'https://accessible-astro-starter.incluud.dev',
   integrations: [compress(), icon(), mdx(), sitemap()],
+  adapter: vercel(),
   vite: {
     css: {
       preprocessorOptions: {
