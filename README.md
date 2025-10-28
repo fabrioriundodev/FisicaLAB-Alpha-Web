@@ -25,5 +25,43 @@
 ---
 
 ## Estructura del proyecto
+FisicaLAB-Alpha/
+├── public/ # Recursos estáticos (imágenes, íconos, etc.)
+├── src/
+│ ├── components/ # Componentes reutilizables
+│ ├── layouts/ # Estructuras de página
+│ ├── pages/ # Contenido principal del sitio
+│ ├── styles/ # Configuración de estilos globales
+│ └── data/ # Archivos de configuración o contenido dinámico
+├── astro.config.mjs # Configuración principal del proyecto
+├── package.json # Dependencias y scripts
+└── README.md # Documentación del proyecto
+
+
+---
+
+## Instalación y uso
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/usuario/FisicaLAB-Alpha.git
+
+Instalar dependencias
+
+npm install
+
+
+Ejecutar el proyecto en modo desarrollo
+
+npm run dev
+
+
+Abrir en el navegador
+
+http://localhost:4321
+
+Autor
+Desarrollado por: Fabrizio Oriundo Flores
+Versión: Alpha
 
 
