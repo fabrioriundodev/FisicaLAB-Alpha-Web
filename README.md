@@ -27,16 +27,41 @@
 ## Estructura del proyecto
 
 FisicaLAB-Alpha/
-├── public/ # Recursos estáticos (imágenes, íconos, etc.)
-├── src/
-│ ├── components/ # Componentes reutilizables
-│ ├── layouts/ # Estructuras de página
-│ ├── pages/ # Contenido principal del sitio
-│ ├── styles/ # Configuración de estilos globales
-│ └── data/ # Archivos de configuración o contenido dinámico
-├── astro.config.mjs # Configuración principal del proyecto
-├── package.json # Dependencias y scripts
-└── README.md # Documentación del proyecto
+├── public/                    # Recursos estáticos
+│   ├── images/               # Imágenes del sitio
+│   ├── icons/                # Iconos y favicons
+│   └── assets/               # Otros recursos públicos
+│
+├── src/                      # Código fuente principal
+│   ├── components/           # Componentes reutilizables
+│   │   ├── Header.astro     # Cabecera del sitio
+│   │   ├── Footer.astro     # Pie de página
+│   │   ├── Navigation.astro # Navegación
+│   │   └── Card.astro       # Tarjetas de contenido
+│   │
+│   ├── layouts/              # Estructuras de página
+│   │   ├── BaseLayout.astro # Layout base
+│   │   └── PageLayout.astro # Layout para páginas
+│   │
+│   ├── pages/                # Contenido principal del sitio
+│   │   ├── index.astro      # Página de inicio
+│   │   ├── about.astro      # Acerca de
+│   │   └── [...slug].astro  # Rutas dinámicas
+│   │
+│   ├── styles/               # Configuración de estilos globales
+│   │   ├── global.css       # Estilos globales
+│   │   └── variables.css    # Variables CSS
+│   │
+│   └── data/                 # Archivos de configuración o contenido dinámico
+│       ├── config.json      # Configuración del sitio
+│       └── content.json     # Contenido dinámico
+│
+├── astro.config.mjs          # Configuración principal del proyecto
+├── package.json              # Dependencias y scripts
+├── package-lock.json         # Versiones bloqueadas de dependencias
+├── tsconfig.json             # Configuración de TypeScript
+├── .gitignore               # Archivos ignorados por Git
+└── README.md                 # Documentación del proyecto
 
 ---
 
