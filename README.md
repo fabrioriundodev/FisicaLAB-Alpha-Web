@@ -2,8 +2,6 @@
 
 [![Desarrollado con Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
 
-<img width="1200" height="627" alt="FisicaLAB Alpha" src="https://github.com/user-attachments/assets/fa1a8b50-3aab-4bd3-8f50-1d43586fbd84" />
-
 **FisicaLAB Alpha** es un simulador educativo desarrollado con **Astro** y **Java**, diseñado para visualizar y experimentar fenómenos de cinemática y estática de manera interactiva.  
 Este proyecto busca ofrecer una experiencia moderna, accesible y clara para estudiantes de física, priorizando el aprendizaje visual y la interactividad.
 
