@@ -2,6 +2,7 @@
 import CallToAction from './CallToAction.astro'
 import Logo from './Logo.astro'
 import { Heading, Link } from 'accessible-astro-components'
+import { physicsTopics } from "../data/physicsTopics";
 
 /**
  * Footer Component
@@ -9,6 +10,27 @@ import { Heading, Link } from 'accessible-astro-components'
  * @description A component that displays the footer of the website
  */
 const currentYear = new Date().getFullYear()
+
+// Datos del equipo de trabajo
+const teamMembers = [
+  "Fabrizio Paolo Oriundo Flores",
+  "Juan Elías Huamaní Ccancce",
+  "Ricardo Felix Alvarez Aroni",
+  "Stefany Lizette Muñoz Ferrer",
+  "Diego Orlando Caritas Huarcaya",
+  "Alexander Choccelahua Ichpas"
+];
+
+// Datos de redes sociales
+const socialLinks = [
+  { label: "Ing. Luis Castillon", href: "https://www.instagram.com/luiscastillonsiguas?igsh=MTF2bzR2cTJ5bXRjdg=="},
+  { label: "Fabrizio Oriundo", href: "https://www.instagram.com/f4bry_00?igsh=MWQ2aDFqY3VmaDl4YQ=="},
+  { label: "Elías Huamaní", href: "https://www.instagram.com/naza_dr_off?igsh=MWlsN3BsZjd2NjAzZw=="},
+  { label: "Ricardo Alvarez", href: "https://www.instagram.com/ricardoalvarez191001?igsh=cHpyaXJveHdmZmYy"},
+  { label: "Stefany Muñoz", href: "https://www.instagram.com/stefany_munz?igsh=MWQ5a2EyMDk2djc3"},
+  { label: "Diego Caritas", href: "https://www.instagram.com/_algo_y_mas_cosas_?igsh=cW9pbzRtbDg5N2lo"},
+  { label: "Alexander Choccelahua", href: "https://www.instagram.com/aleksander_chs?igsh=MWF4cTZua3lyanRjaw=="}
+];
 ---
 
 <footer>
@@ -16,113 +38,63 @@ const currentYear = new Date().getFullYear()
   <section class="py-20">
     <Heading level="h2" class="sr-only">Footer</Heading>
     <div class="container grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Temas de Física -->
       <div class="flex flex-col gap-4">
         <Heading level="h3" size="h6">Temas de Física</Heading>
         <ul class="flex flex-col gap-2">
-          <li><Link href="/movimiento-rectilineo-uniforme">Movimiento Rectilíneo Uniforme (MRU)</Link></li>
-          <li><Link href="/movimiento-rectilineo-uniformemente-variado">Movimiento Rectilíneo Uniformemente Variado (MRUV)</Link></li>
-          <li><Link href="/caida-libre">Caída Libre</Link></li>
-          <li><Link href="/tiro-parabolico">Tiro Parabólico</Link></li>
-          <li><Link href="/estatica">Estática</Link></li>
-          <li><Link href="/leyes-de-newton">Leyes de Newton</Link></li>
-          <li><Link href="/energia-y-trabajo-mecanico">Energía y Trabajo Mecánico</Link></li>
+          {physicsTopics.map(topic => (
+            <li>
+              <Link href={topic.href} target={topic.target}>
+                {topic.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
+
+      <!-- Docente y Equipo -->
       <div class="flex flex-col gap-4">
         <Heading level="h3" size="h6">Docente</Heading>
         <ul class="flex flex-col gap-2">
           <li>Ing. Luis Alfredo Castillon Siguas</li>
-          
-  <Heading level="h3" size="h6">Equipo de Trabajo</Heading>
-  <ul class="flex flex-col gap-2">
-  <li>Fabrizio Paolo Oriundo Flores</li>
-  <li>Juan Elías Huamaní Ccancce</li>
-  <li>Ricardo Felix Alvarez Aroni</li>
-  <li>Stefany Lizette Muñoz Ferrer</li>
-  <li>Diego Orlando Caritas Huarcaya</li>
-  <li>Alexander Choccelahua Ichpas</li>
-</ul>
-</div>
+        </ul>
 
-<div class="flex flex-col gap-4">
-  <Heading level="h3" size="h6">Redes Sociales</Heading>
-  <ul class="flex flex-col gap-2">
-        <li>
-      <Link
-        isExternal
-        href="https://www.instagram.com/luiscastillonsiguas?igsh=MTF2bzR2cTJ5bXRjdg=="
-      >
-        Ing. Luis Castillon
-      </Link>
-    </li>
-    <li>
-    <li>
-      <Link
-        isExternal
-        href="https://www.instagram.com/f4bry_00?igsh=MWQ2aDFqY3VmaDl4YQ=="
-      >
-        Fabrizio Oriundo
-      </Link>
-    </li>
-    <li>
-            <Link
-        isExternal
-        href="https://www.instagram.com/naza_dr_off?igsh=MWlsN3BsZjd2NjAzZw=="
-      >
-        Elías Huamaní
-      </Link>
-    </li>
-    <li>
-            <Link
-        isExternal
-        href="https://www.instagram.com/ricardoalvarez191001?igsh=cHpyaXJveHdmZmYy"
-      >
-        Ricardo Alvarez
-      </Link>
-    </li>
-    <li>
-            <Link
-        isExternal
-        href="https://www.instagram.com/stefany_munz?igsh=MWQ5a2EyMDk2djc3"
-      >
-        Stefany Muñoz
-      </Link>
-    </li>
-    <li>
-            <Link
-        isExternal
-        href="https://www.instagram.com/_algo_y_mas_cosas_?igsh=cW9pbzRtbDg5N2lo"
-      >
-        Diego Caritas
-      </Link>
-    </li>
-    <li>
-            <Link
-        isExternal
-        href="https://www.instagram.com/aleksander_chs?igsh=MWF4cTZua3lyanRjaw=="
-      >
-        Alexander Choccelahua
-      </Link>
-    </li>
-  </ul>
-</div>
+        <Heading level="h3" size="h6">Equipo de Trabajo</Heading>
+        <ul class="flex flex-col gap-2">
+          {teamMembers.map(member => (
+            <li>{member}</li>
+          ))}
+        </ul>
+      </div>
 
-<div class="flex flex-col gap-4">
+      <!-- Redes Sociales -->
+      <div class="flex flex-col gap-4">
+        <Heading level="h3" size="h6">Redes Sociales</Heading>
+        <ul class="flex flex-col gap-2">
+          {socialLinks.map(social => (
+            <li>
+              <Link isExternal href={social.href}>
+                {social.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-  <!-- Logo -->
-  <Logo loading="lazy" />
+      <!-- Logo e Información Académica -->
+      <div class="flex flex-col gap-4">
+        <Logo loading="lazy" />
+        <Heading level="h3" size="h6">Información Académica</Heading>
+        <ul class="flex flex-col gap-2">
+          <li><strong>Curso:</strong> Algorítmica</li>
+          <li><strong>Carrera:</strong> Ingeniería de Sistemas</li>
+          <li><strong>Ciclo:</strong> II</li>
+          <li><strong>Escuela Profesional:</strong> Escuela Profesional de Ingeniería de Sistemas</li>
+        </ul>
+      </div>
 
-  <!-- Información académica -->
-  <Heading level="h3" size="h6">Información Académica</Heading>
-  <ul class="flex flex-col gap-2">
-    <li><strong>Curso:</strong> Algoritmica</li>
-    <li><strong>Carrera:</strong> Ingeniería de Sistemas</li>
-    <li><strong>Ciclo:</strong> II</li>
-    <li><strong>Escuela Profesional:</strong> Escuela Profesional de Ingeniería de Sistemas</li>
-  </ul>
-
-</div>
-
+    </div>
   </section>
 </footer>
 
@@ -131,3 +103,4 @@ const currentYear = new Date().getFullYear()
     border-top: 1px solid var(--border-color-subtle);
   }
 </style>
+<!-- End of Footer.astro -->
