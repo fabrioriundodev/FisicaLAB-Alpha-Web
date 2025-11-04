@@ -23,14 +23,14 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
     <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
       <div class="flex flex-col items-center gap-8 md:items-start">
         <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="text-gradient">Bienvenido a </span>FisicaLAB Alpha</slot>
+          <slot><span class="text-gradient">Bienvenido a </span>FisicaLAB</slot>
         </h1>
         <div class="flex flex-col gap-3 min-[500px]:flex-row">
           <Link
             href="/estatica"
             target="_blank"
             isButton
-            type="primary"
+            type="info"
             animateOnHover
             animationType="boop"
           >
@@ -41,7 +41,7 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
             href="/movimiento-rectilineo-uniformemente-variado"
             isButton
             target="_blank"
-            type="secondary"
+            type="error"
             animateOnHover
             animationType="boop"
           >

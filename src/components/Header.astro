@@ -1,59 +1,59 @@
 ---
-import Navigation from '../components/Navigation.astro'
-import { DarkMode, Link, SkipLink } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
+// imports
+import Navigation from "../components/Navigation.astro";
+import { DarkMode, Link, SkipLink } from "accessible-astro-components";
+import { Icon } from "astro-icon/components";
+import { physicsTopics } from "../data/physicsTopics";
+
+type Topic = {
+  href: string;
+  label: string;
+  target?: string;
+};
+const topics: Topic[] = physicsTopics;
 
 /**
  * Header Component
- *
  * @description A component that displays the header of the website
  */
+
 ---
+
 
 <header>
   <SkipLink />
   <Navigation>
     <li class="menu-item">
-      <Link href="/">Inicio</Link>
+      <Link href="/" target="_blank">Inicio</Link>
     </li>
-    <!-- <li class="menu-item">
-      <Link href="/blog/">Blog de Física</Link>
-    </li> -->
-    <!-- <li class="menu-item">
-      <Link href="/portfolio/">Blog de Física</Link>
-    </li> -->
+
     <li class="menu-item has-dropdown">
       <button aria-haspopup="true" aria-expanded="false">
         Temas de Física
         <Icon aria-hidden="true" name="lucide:chevron-down" size="32" />
       </button>
-      <ul class="dropdown-menu">
-        <li class="submenu-item">
-          <Link href="/movimiento-rectilineo-uniforme">Movimiento Rectilíneo Uniforme (MRU)</Link>
-        </li>
-        <li class="submenu-item">
-          <Link href="/movimiento-rectilineo-uniformemente-variado">Movimiento Rectilíneo Uniformemente Variado (MRUV)</Link>
-        </li>
-        <li class="submenu-item">
-          <Link href="/caida-libre">Caída Libre</Link>
-        </li>
-        <li class="submenu-item">
-          <Link href="/tiro-parabolico/">Tiro Parabólico</Link>
-        </li>
-        <li class="submenu-item">
-          <Link href="/estatica/">Estática</Link>
-        </li>
-        <li class="submenu-item">
-          <Link href="/leyes-de-newton">Leyes de Newton</Link>
-        </li>
-        <li class="submenu-item">
-          <Link href="/energia-y-trabajo-mecanico">Energía y Trabajo Mecánico</Link>
-        </li>
-      </ul>
+
+      <!-- Dropdown con temas de física -->
+<ul class="dropdown-menu">
+  {topics.map((topic) => (
+    <li class="submenu-item">
+      <Link
+        href={topic.href}
+        target={topic.target ?? "_self"}
+        rel={topic.target === "_blank" ? "noopener noreferrer" : undefined}
+      >
+        {topic.label}
+      </Link>
     </li>
+  ))}
+</ul>
+
+    </li>
+
     <li class="menu-item">
-      <Link href="/contact/">Contáctanos</Link>
+      <Link href="/contact/" target="_blank">Contáctanos</Link>
     </li>
+
     <li class="menu-item type-icon animate-rotate">
       <DarkMode>
         <Icon aria-hidden="true" name="lucide:moon" slot="light" />
@@ -63,16 +63,5 @@ import { Icon } from 'astro-icon/components'
   </Navigation>
 </header>
 
-<style lang="scss" is:global>
-  header {
-    .type-icon {
-      display: block;
-      margin-inline: -7px;
 
-      svg {
-        inline-size: 30px;
-        block-size: 30px;
-      }
-    }
-  }
-</style>
+

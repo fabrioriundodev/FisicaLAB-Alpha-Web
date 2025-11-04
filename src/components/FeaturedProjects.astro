@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
-
+import { downloadLinks } from '../data/downloadLinks';
 interface Props {
   class?: string
   title?: string
@@ -9,29 +9,7 @@ interface Props {
 
 const { class: className, title = 'Descargas disponibles', id  } = Astro.props
 
-const downloads = [
-  {
-    name: 'Google Drive',
-    link: 'https://drive.google.com/drive/folders/1mZ1Q2Tp8FQ966gNX0xitLes2R67ruoh7?usp=sharing',
-    icon: 'mdi:google-drive',
-    gradient: 'from-green-400 to-emerald-600',
-    bgHover: 'hover:shadow-green-500/50'
-  },
-  {
-    name: 'OneDrive',
-    link: 'https://upsjb-my.sharepoint.com/:f:/g/personal/fabrizio_oriundo_upsjb_edu_pe/EiKUF9O0HRtAn1GOFTAuetcBCGBfp9JwXbwnoIGvKrbptA?e=yUTk1U',
-    icon: 'mdi:microsoft-onedrive',
-    gradient: 'from-blue-400 to-blue-600',
-    bgHover: 'hover:shadow-blue-500/50'
-  },
-  {
-    name: 'MediaFire',
-    link: 'https://www.mediafire.com/file/q6d269b154azl0h/FisicaLAB_Alpha.exe/file',
-    icon: 'mdi:cloud-download',
-    gradient: 'from-sky-400 to-cyan-600',
-    bgHover: 'hover:shadow-cyan-500/50'
-  }
-]
+
 ---
 <section id={id} class:list={[className, 'my-20 px-4']}>
   <div class="max-w-5xl mx-auto">
@@ -49,7 +27,7 @@ const downloads = [
 
     <!-- Grid de botones con diseño premium -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {downloads.map((btn) => (
+      {downloadLinks.map((btn) => (
         <a
           href={btn.link}
           target="_blank"
