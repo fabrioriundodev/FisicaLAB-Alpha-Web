@@ -28,7 +28,7 @@ interface Props {
   subtitle?: string
   /**
    * The background color of the page header
-   * @type {'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered' | undefined}
+   * @type {'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered' |  | 'neon' | undefined}
    * @default undefined - Uses the default background color
    */
   /**
@@ -105,7 +105,7 @@ const sanitizedSubtitle: string = subtitle
 
           return (
             <Breadcrumbs>
-              <BreadcrumbsItem href="/" label="Home" />
+              <BreadcrumbsItem href="/" label="Inicio" />
               {segments.map((segment, index) => {
                 if (joinLastBreadcrumb && index === segments.length - 1) {
                   return null
