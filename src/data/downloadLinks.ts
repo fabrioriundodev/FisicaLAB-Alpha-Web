@@ -1,7 +1,7 @@
 export const downloadLinks = [
   {
     name: 'Google Drive',
-    link: 'https://drive.google.com/drive/folders/1mZ1Q2Tp8FQ966gNX0xitLes2R67ruoh7?usp=sharing',
+    link: 'https://drive.google.com/file/d/1CvbRYOEPAGZHptQyJslgbXrXAHKqGgP-/view?usp=drivesdk',
     icon: 'mdi:google-drive',
     gradient: 'from-green-400 to-emerald-600',
     bgHover: 'hover:shadow-green-500/50'
@@ -15,7 +15,7 @@ export const downloadLinks = [
   },
   {
     name: 'MediaFire',
-    link: 'https://www.mediafire.com/file/q6d269b154azl0h/FisicaLAB_Alpha.exe/file',
+    link: 'https://www.mediafire.com/file/f1wezmq5b22dk64/FISICA_LAB_PROJECTO.rar/file',
     icon: 'mdi:cloud-download',
     gradient: 'from-sky-400 to-cyan-600',
     bgHover: 'hover:shadow-cyan-500/50'
